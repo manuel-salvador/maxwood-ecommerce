@@ -21,29 +21,32 @@ export default function NewsLetter() {
   };
 
   return (
-    <section className="relative flex flex-col items-center mt-8 px-4 pt-8 pb-10 gap-4 text-center text-white">
+    <section className="relative flex flex-col items-center mt-8 px-4 pt-8 pb-10 gap-4 text-center text-white md:mt-10 md:px-36">
       <Image
         src="/img/newsletter.jpg"
         alt="Newsletter background of a coach"
         fill
         className="object-cover object-center -z-10 brightness-[0.35]"
       />
-      <h6 className="font-bold text-lg">Sigamos en contacto</h6>
-      <p className="text-sm">
+      <h6 className="font-bold text-lg md:text-2xl">Sigamos en contacto</h6>
+      <p className="text-sm md:text-lg">
         Dejanos tu mail, participas todos los meses de nuestros sorteos y obtenes descuentos
         exclusivos
       </p>
       {success ? (
-        <p className="text font-bold">
+        <p className="text font-bold md:text-lg">
           Ya estas participado 🥳 <br /> ¡Gracias por suscribirte!
         </p>
       ) : (
-        <form className="relative flex w-full max-w-xl text-sm" onSubmit={handleSumbit}>
+        <form
+          className="relative flex w-full max-w-xl text-sm md:text-base"
+          onSubmit={handleSumbit}
+        >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full text-black outline-none p-2"
+            className="w-full text-black outline-none p-2 md:px-3"
             placeholder="Ingrese su email"
           />
           <span

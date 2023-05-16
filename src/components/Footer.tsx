@@ -3,14 +3,33 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="bg-primary text-white">
-      <div className="py-8 px-4">
-        <div className="flex flex-col gap-8">
+      <div className="py-8 px-4 md:p-10">
+        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
           <div className="max-w-xs">
             <div className="mb-4">
               <p className="font-bold text-2xl">MaxWood</p>
               <span>20 años construyendo junto a vos.</span>
             </div>
             <p>Tenemos todos los muebles para tu hogar, oficina o negocio.</p>
+          </div>
+
+          <div className="flex justify-center gap-8">
+            <div>
+              <h6 className="font-bold">Información</h6>
+              <ul>
+                <li>Términos y condiciones</li>
+                <li>Pago seguro</li>
+                <li>Polítco de envio</li>
+              </ul>
+            </div>
+            <div>
+              <h6 className="font-bold">Empresa</h6>
+              <ul>
+                <li>Nosotros</li>
+                <li>Contacto</li>
+                <li>Maps</li>
+              </ul>
+            </div>
           </div>
 
           <div className="flex gap-3 self-center">
@@ -23,24 +42,6 @@ export default function Footer() {
             <figure className="relative w-16 h-16">
               <Image src="/footer/afip.png" alt="Credencial AFIP" fill className="object-cover" />
             </figure>
-          </div>
-        </div>
-        <div className="flex justify-center gap-8 mt-8 ">
-          <div>
-            <h6 className="font-bold">Información</h6>
-            <ul>
-              <li>Términos y condiciones</li>
-              <li>Pago seguro</li>
-              <li>Polítco de envio</li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="font-bold">Empresa</h6>
-            <ul>
-              <li>Nosotros</li>
-              <li>Contacto</li>
-              <li>Maps</li>
-            </ul>
           </div>
         </div>
       </div>
