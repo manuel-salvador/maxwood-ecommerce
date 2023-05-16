@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  color-scheme: dark;
+@layer components {
+  .button-primary {
+    @apply px-4 py-2 rounded-md transition-all duration-300 hover:brightness-110;
+  }
 }
