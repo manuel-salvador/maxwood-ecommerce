@@ -21,22 +21,22 @@ export default function Header() {
       <p className="font-bold text-2xl md:flex-1">MaxWood</p>
       <nav>
         <ul className="hidden md:flex gap-4">
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Inicio</Link>
           </li>
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Productos</Link>
           </li>
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Dormitorio</Link>
           </li>
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Cocina</Link>
           </li>
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Living</Link>
           </li>
-          <li className="cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300">
+          <li className="link-animation">
             <Link href="/">Exterior</Link>
           </li>
         </ul>
@@ -69,10 +69,10 @@ export default function Header() {
           </li>
           <div className="w-1/2 h-[2px] bg-gray-500" />
           <li onClick={handleMenu}>
-            <Link href="/">Iniciar sesión</Link>
+            <Link href="/login">Iniciar sesión</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Registrarme</Link>
+            <Link href="/register">Registrarme</Link>
           </li>
         </ul>
       </nav>
@@ -91,8 +91,16 @@ export default function Header() {
           </div>
         </div>
         <CartIcon />
-        <span className="hidden md:block">
+        <span className="hidden md:block relative group">
           <UserIcon />
+          <div className="hidden absolute bg-gray-50 rounded-md top-full -right-4 shadow-md py-2 px-4 w-32 group-hover:flex flex-col items-end gap-1">
+            <Link href="/login" className="link-animation">
+              Iniciar sesión
+            </Link>
+            <Link href="/register" className="link-animation">
+              Registrarme
+            </Link>
+          </div>
         </span>
         <span className="block md:hidden" onClick={handleMenu}>
           <BurgerMenuIcon />
