@@ -7,9 +7,10 @@ type PageProps = {
   title: string;
   children: JSX.Element | JSX.Element[];
   className?: string;
+  footer?: boolean;
 };
 
-export default function PageLayout({ title, children, className }: PageProps) {
+export default function PageLayout({ title, children, className, footer = true }: PageProps) {
   const pageTitle = `MaxWood | ${title}`;
   return (
     <>
@@ -21,8 +22,8 @@ export default function PageLayout({ title, children, className }: PageProps) {
       </Head>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className={`flex-1 ${className}`}>{children}</main>
-        <Footer />
+        <main className={`flex-1 mt-16 ${className}`}>{children}</main>
+        {footer && <Footer />}
       </div>
     </>
   );

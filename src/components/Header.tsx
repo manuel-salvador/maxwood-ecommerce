@@ -93,7 +93,7 @@ export default function Header() {
         <CartIcon />
         <span className="hidden md:block relative group">
           <UserIcon />
-          <div className="hidden absolute bg-gray-50 rounded-md top-full -right-4 shadow-md py-2 px-4 w-32 group-hover:flex flex-col items-end gap-1">
+          <div className="opacity-0 top-full absolute -right-36 bg-gray-50 rounded-md shadow-md py-2 px-4 w-32 items-end gap-1 flex flex-col group-hover:-right-4 group-hover:opacity-100 transition-all duration-300">
             <Link href="/login" className="link-animation">
               Iniciar sesión
             </Link>

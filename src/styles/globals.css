@@ -6,10 +6,18 @@
   .button-primary {
     @apply min-w-fit px-4 py-2 rounded-sm transition-all duration-300 hover:brightness-110;
   }
+
+  .input {
+    @apply bg-transparent text-black border-2 border-black w-full rounded-md px-2 py-1 text-lg leading-none outline-none;
+  }
 }
 
 @layer utilities {
   .link-animation {
     @apply cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-black after:h-[1.5px] hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  .input-error-message {
+    @apply absolute bottom-3 text-sm font-semibold text-red-600 flex items-center gap-2 transition-all;
   }
 }
