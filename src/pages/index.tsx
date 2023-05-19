@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <PageLayout title="Inicio">
       <Hero />
-      <section className="h-20 bg-primary flex items-center justify-center">
-        <p className="text-white font-bold md:text-xl">
+      <section className="h-20 bg-primary flex items-center justify-center px-12">
+        <p className="text-white font-bold text-center md:text-xl">
           Muebles hechos 100% a mano con lujo de detalle
         </p>
       </section>

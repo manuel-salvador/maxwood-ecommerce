@@ -18,7 +18,9 @@ export default function Header() {
 
   return (
     <header className="bg-white z-10 h-16 shadow-md px-6 fixed w-full flex items-center justify-between">
-      <p className="font-bold text-2xl md:flex-1">MaxWood</p>
+      <Link href="/" className="md:flex-1">
+        <h1 className="font-bold text-2xl">MaxWood</h1>
+      </Link>
       <nav>
         <ul className="hidden md:flex gap-4">
           <li className="link-animation">

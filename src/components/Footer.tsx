@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="py-8 px-4 md:p-10">
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
-          <div className="max-w-xs">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between md:items-start">
+          <div className="max-w-xs text-center md:text-left">
             <div className="mb-4">
               <p className="font-bold text-2xl">MaxWood</p>
               <span>20 años construyendo junto a vos.</span>

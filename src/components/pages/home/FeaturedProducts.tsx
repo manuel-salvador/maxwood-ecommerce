@@ -5,8 +5,8 @@ export default function FeaturedProducts() {
   return (
     <section className="text-white px-4 md:px-10">
       <h2 className="font-bold text-2xl text-black text-center mb-8">Productos Destacados</h2>
-      <div className="h-[35rem] grid gap-4 grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 md:grid-flow-col md:gap-8">
-        <div className="relative rounded-sm group overflow-hidden row-span-2">
+      <div className="h-[50rem] grid gap-4 grid-cols-1 grid-rows-4 auto-rows-auto md:h-[35rem] md:grid-cols-3 md:grid-rows-2 md:grid-flow-col md:gap-8">
+        <div className="relative rounded-sm group overflow-hidden md:row-span-2">
           <Image
             src="/products/destacado1.webp"
             alt="Producto destacado 1"
@@ -19,7 +19,7 @@ export default function FeaturedProducts() {
               Ir al producto
             </Link>
           </div>
-          <div className="md:hidden absolute bottom-0 w-full bg-primary bg-opacity-80 py-3 flex justify-center">
+          <div className="md:hidden absolute right-0 h-full flex p-3 items-center bg-primary bg-opacity-80 py-3">
             <Link href="/" className="button-primary bg-secondary text-sm">
               Ver producto
             </Link>
@@ -38,7 +38,7 @@ export default function FeaturedProducts() {
               Ir al producto
             </Link>
           </div>
-          <div className="md:hidden absolute bottom-0 w-full bg-primary bg-opacity-80 py-3 flex justify-center">
+          <div className="md:hidden absolute right-0 h-full flex p-3 items-center bg-primary bg-opacity-80 py-3">
             <Link href="/" className="button-primary bg-secondary text-sm">
               Ver producto
             </Link>
@@ -57,13 +57,13 @@ export default function FeaturedProducts() {
               Ir al producto
             </Link>
           </div>
-          <div className="md:hidden absolute bottom-0 w-full bg-primary bg-opacity-80 py-3 flex justify-center">
+          <div className="md:hidden absolute right-0 h-full flex p-3 items-center bg-primary bg-opacity-80 py-3">
             <Link href="/" className="button-primary bg-secondary text-sm">
               Ver producto
             </Link>
           </div>
         </div>
-        <div className="relative rounded-sm group overflow-hidden col-span-full md:col-span-1 md:row-span-2">
+        <div className="relative rounded-sm group overflow-hidden flex md:col-span-1 md:row-span-2">
           <Image
             src="/products/destacado4.webp"
             alt="Producto destacado 1"
