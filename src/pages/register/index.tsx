@@ -20,7 +20,7 @@ const validationSchema = Yup.object({
   terms: Yup.boolean().isTrue('Debe aceptar los términos y condiciones'),
 });
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
