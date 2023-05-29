@@ -26,7 +26,7 @@ export default function Breadcrumb() {
     const breadcrumbsList = generateBreadCrumbs();
 
     setBreadcrumbs(breadcrumbsList);
-  }, []);
+  }, [router]);
 
   return (
     <div className="hidden md:block px-6 my-3" aria-label="breadcrumb">

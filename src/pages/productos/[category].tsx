@@ -8,14 +8,18 @@ import useProducts from '@/hooks/useProducts';
 import { useRouter } from 'next/router';
 
 export default function CategoryPage() {
-  const router = useRouter();
+  const category = useRouter().query.category as string;
   const [filtersOppened, setFiltersOppened] = useState<boolean>(false);
   const { products, productFilters, filters, setOrderBy } = useProducts(
-    `/api/products/${router.query.category}`,
+    `/api/products/${category}`,
   );
 
   return (
-    <PageLayout title="Productos" className="relative" footer={!filtersOppened}>
+    <PageLayout
+      title={category?.charAt(0).toUpperCase() + category.slice(1)}
+      className="relative"
+      footer={!filtersOppened}
+    >
       <Breadcrumb />
       <div className="md:flex">
         <FilterSection
