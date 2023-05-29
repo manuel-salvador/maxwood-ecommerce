@@ -5,7 +5,11 @@ const project = resolve(__dirname, 'tsconfig.json');
 module.exports = {
   root: true,
   plugins: ['prettier', 'import'],
-  extends: ['next/core-web-vitals', 'plugin:prettier/recommended'],
+  extends: [
+    'next/core-web-vitals',
+    'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     project,
@@ -28,9 +32,9 @@ module.exports = {
         bracketSpacing: true,
       },
     ],
-    'no-unused-vars': 'warn',
     'react/self-closing-comp': 'warn',
-    'no-console': 'warn',
+    'no-unused-vars': 'warn',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
     'import/order': [
       'warn',
       {

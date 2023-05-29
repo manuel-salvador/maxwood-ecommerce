@@ -11,9 +11,10 @@ module.exports = {
       colors: {
         primary: '#223E3F',
         secondary: '#CF8420',
+        'light-gray': '#7B7B7B',
       },
       gridTemplateColumns: {
-        'list-cards': 'repeat(auto-fit, minmax(180px, 1fr))',
+        'list-cards': 'repeat(auto-fit, minmax(250px, 1fr))',
       },
     },
   },

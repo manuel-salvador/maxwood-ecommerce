@@ -17,7 +17,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white z-10 h-16 shadow-md px-6 fixed w-full flex items-center justify-between">
+    <header className="bg-white z-20 h-16 shadow-md px-6 fixed w-full flex items-center justify-between">
       <Link href="/" className="md:flex-1">
         <h1 className="font-bold text-2xl">MaxWood</h1>
       </Link>
@@ -27,7 +27,7 @@ export default function Header() {
             <Link href="/">Inicio</Link>
           </li>
           <li className="link-animation">
-            <Link href="/">Productos</Link>
+            <Link href="/productos">Productos</Link>
           </li>
           <li className="link-animation">
             <Link href="/">Dormitorio</Link>
@@ -55,7 +55,7 @@ export default function Header() {
             <Link href="/">Inicio</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Productos</Link>
+            <Link href="/productos">Productos</Link>
           </li>
           <li onClick={handleMenu}>
             <Link href="/">Dormitorio</Link>

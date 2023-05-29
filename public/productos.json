@@ -2,28 +2,117 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Silla de comedor",
-      "descripcion": "Silla de comedor de madera maciza con asiento tapizado",
-      "precio": 150.99,
+      "nombre": "Sofá cama",
+      "descripcion": "Sofá cama de dos plazas con diseño moderno",
+      "imagen": "/products/sofa-cama.jpg",
+      "precio": 899.99,
       "stock": 10,
-      "categoria": "Sillas",
-      "material": "Madera de roble",
-      "color": "Marrón oscuro",
+      "categoria": "living",
+      "subCategoria": "sofás",
+      "material": "madera de pino",
+      "color": "gris",
       "dimensiones": {
-        "alto": 90,
-        "ancho": 45,
-        "profundidad": 50
+        "alto": 80,
+        "ancho": 180,
+        "profundidad": 90
       }
     },
     {
       "id": 2,
-      "nombre": "Mesa de centro",
-      "descripcion": "Mesa de centro de madera con superficie de vidrio",
-      "precio": 299.99,
+      "nombre": "Mesa de comedor",
+      "descripcion": "Mesa de comedor extensible para seis personas",
+      "imagen": "/products/mesa-de-comedor.webp",
+      "precio": 499.99,
       "stock": 5,
-      "categoria": "Mesas",
-      "material": "Madera de pino",
-      "color": "Blanco",
+      "categoria": "cocina",
+      "subCategoria": "mesas",
+      "material": "madera de roble",
+      "color": "marrón",
+      "dimensiones": {
+        "alto": 75,
+        "ancho": 160,
+        "profundidad": 90
+      }
+    },
+    {
+      "id": 3,
+      "nombre": "Cama queen",
+      "descripcion": "Cama queen con cabecera acolchada",
+      "imagen": "/products/cama-queen.jpg",
+      "precio": 699.99,
+      "stock": 3,
+      "categoria": "dormitorio",
+      "subCategoria": "camas",
+      "material": "madera de cerezo",
+      "color": "blanco",
+      "dimensiones": {
+        "alto": 100,
+        "ancho": 160,
+        "profundidad": 200
+      }
+    },
+    {
+      "id": 4,
+      "nombre": "Silla de escritorio",
+      "descripcion": "Silla de escritorio ergonómica con respaldo ajustable",
+      "imagen": "/products/silla-de-escritorio.jpg",
+      "precio": 129.99,
+      "stock": 8,
+      "categoria": "oficina",
+      "subCategoria": "sillas",
+      "material": "madera de abedul",
+      "color": "negro",
+      "dimensiones": {
+        "alto": 95,
+        "ancho": 60,
+        "profundidad": 55
+      }
+    },
+    {
+      "id": 5,
+      "nombre": "Sofá seccional",
+      "descripcion": "Sofá seccional de cuero con asientos reclinables",
+      "imagen": "/products/sofa-seccional.webp",
+      "precio": 1299.99,
+      "stock": 2,
+      "categoria": "living",
+      "subCategoria": "sofás",
+      "material": "cuero genuino",
+      "color": "marrón oscuro",
+      "dimensiones": {
+        "alto": 85,
+        "ancho": 250,
+        "profundidad": 200
+      }
+    },
+    {
+      "id": 6,
+      "nombre": "Escritorio de madera",
+      "descripcion": "Escritorio de madera con cajones y espacio para computadora",
+      "imagen": "/products/escritorio-de-madera.jpg",
+      "precio": 299.99,
+      "stock": 6,
+      "categoria": "oficina",
+      "subCategoria": "escritorios",
+      "material": "madera de nogal",
+      "color": "café",
+      "dimensiones": {
+        "alto": 75,
+        "ancho": 120,
+        "profundidad": 60
+      }
+    },
+    {
+      "id": 7,
+      "nombre": "Mesa de centro",
+      "descripcion": "Mesa de centro de vidrio templado con base de acero inoxidable",
+      "imagen": "/products/mesa-de-centro.jpg",
+      "precio": 249.99,
+      "stock": 4,
+      "categoria": "living",
+      "subCategoria": "mesas",
+      "material": "vidrio y acero inoxidable",
+      "color": "transparente",
       "dimensiones": {
         "alto": 40,
         "ancho": 100,
@@ -31,164 +120,101 @@
       }
     },
     {
-      "id": 3,
-      "nombre": "Armario de almacenamiento",
-      "descripcion": "Armario de madera con puertas correderas y estantes ajustables",
-      "precio": 499.99,
-      "stock": 2,
-      "categoria": "Armarios",
-      "material": "Madera de cerezo",
-      "color": "Marrón claro",
-      "dimensiones": {
-        "alto": 180,
-        "ancho": 120,
-        "profundidad": 50
-      }
-    },
-    {
-      "id": 4,
-      "nombre": "Sofá de tres plazas",
-      "descripcion": "Sofá de tres plazas de madera con cojines tapizados",
-      "precio": 799.99,
-      "stock": 8,
-      "categoria": "Sofás",
-      "material": "Madera de abeto",
-      "color": "Gris",
-      "dimensiones": {
-        "alto": 85,
-        "ancho": 200,
-        "profundidad": 90
-      }
-    },
-    {
-      "id": 5,
-      "nombre": "Mesa de comedor",
-      "descripcion": "Mesa de comedor de madera con capacidad para 6 personas",
-      "precio": 549.99,
-      "stock": 3,
-      "categoria": "Mesas",
-      "material": "Madera de nogal",
-      "color": "Negro",
-      "dimensiones": {
-        "alto": 75,
-        "ancho": 150,
-        "profundidad": 90
-      }
-    },
-    {
-      "id": 6,
-      "nombre": "Estantería de libros",
-      "descripcion": "Estantería de madera con 5 estantes",
-      "precio": 199.99,
-      "stock": 6,
-      "categoria": "Estanterías",
-      "material": "Madera de haya",
-      "color": "Natural",
-      "dimensiones": {
-        "alto": 180,
-        "ancho": 80,
-        "profundidad": 30
-      }
-    },
-    {
-      "id": 7,
+      "id": 8,
       "nombre": "Cama individual",
-      "descripcion": "Cama individual de madera con cabecera y somier incluidos",
-      "precio": 299.99,
-      "stock": 4,
-      "categoria": "Camas",
-      "material": "Madera de pino",
-      "color": "Blanco",
+      "descripcion": "Cama individual con diseño minimalista",
+      "imagen": "/products/cama-individual.jpg",
+      "precio": 399.99,
+      "stock": 7,
+      "categoria": "dormitorio",
+      "subCategoria": "camas",
+      "material": "madera de fresno",
+      "color": "negro",
       "dimensiones": {
-        "alto": 100,
-        "ancho": 90,
+        "alto": 90,
+        "ancho": 100,
         "profundidad": 200
       }
     },
     {
-      "id": 8,
-      "nombre": "Mesa de noche",
-      "descripcion": "Mesa de noche de madera con cajón y estante",
-      "precio": 89.99,
-      "stock": 12,
-      "categoria": "Mesas",
-      "material": "Madera de roble",
-      "color": "Marrón claro",
-      "dimensiones": {
-        "alto": 50,
-        "ancho": 40,
-        "profundidad": 30
-      }
-    },
-    {
       "id": 9,
-      "nombre": "Escritorio",
-      "descripcion": "Escritorio de madera con cajones y superficie amplia",
-      "precio": 349.99,
-      "stock": 7,
-      "categoria": "Escritorios",
-      "material": "Madera de nogal",
-      "color": "Marrón",
+      "nombre": "Silla de comedor",
+      "descripcion": "Silla de comedor con respaldo curvado y asiento acolchado",
+      "imagen": "/products/silla-de-comedor.webp",
+      "precio": 79.99,
+      "stock": 12,
+      "categoria": "cocina",
+      "subCategoria": "sillas",
+      "material": "madera de haya",
+      "color": "blanco",
       "dimensiones": {
-        "alto": 75,
-        "ancho": 120,
-        "profundidad": 60
+        "alto": 85,
+        "ancho": 50,
+        "profundidad": 50
       }
     },
     {
       "id": 10,
-      "nombre": "Sillón reclinable",
-      "descripcion": "Sillón reclinable de madera con tapizado de cuero",
-      "precio": 499.99,
+      "nombre": "Armario de almacenamiento",
+      "descripcion": "Armario de almacenamiento con puertas corredizas",
+      "imagen": "/products/armario-de-almacenamiento.jpg",
+      "precio": 599.99,
       "stock": 3,
-      "categoria": "Sillones",
-      "material": "Madera de abeto",
-      "color": "Negro",
+      "categoria": "dormitorio",
+      "subCategoria": "armarios",
+      "material": "madera de abeto",
+      "color": "blanco",
       "dimensiones": {
-        "alto": 105,
-        "ancho": 80,
-        "profundidad": 90
+        "alto": 180,
+        "ancho": 120,
+        "profundidad": 40
       }
     },
     {
       "id": 11,
-      "nombre": "Mesa de centro",
-      "descripcion": "Mesa de centro de madera maciza con cajones de almacenamiento",
-      "precio": 279.99,
+      "nombre": "Sofá de cuero",
+      "descripcion": "Sofá de cuero con detalles de costura y patas de acero",
+      "imagen": "/products/sofa-de-cuero.jpg",
+      "precio": 1099.99,
       "stock": 5,
-      "categoria": "Mesas",
-      "material": "Madera de roble",
-      "color": "Marrón oscuro",
+      "categoria": "living",
+      "subCategoria": "sofás",
+      "material": "cuero genuino",
+      "color": "negro",
       "dimensiones": {
-        "alto": 50,
-        "ancho": 100,
-        "profundidad": 60
+        "alto": 80,
+        "ancho": 220,
+        "profundidad": 90
       }
     },
     {
       "id": 12,
-      "nombre": "Armario ropero",
-      "descripcion": "Armario ropero de madera con puertas batientes y cajones",
-      "precio": 699.99,
-      "stock": 2,
-      "categoria": "Armarios",
-      "material": "Madera de pino",
-      "color": "Blanco",
+      "nombre": "Mesa de noche",
+      "descripcion": "Mesa de noche con cajón y estante",
+      "imagen": "/products/mesa-de-noche.jpg",
+      "precio": 99.99,
+      "stock": 9,
+      "categoria": "dormitorio",
+      "subCategoria": "mesas",
+      "material": "madera de roble",
+      "color": "marrón claro",
       "dimensiones": {
-        "alto": 200,
-        "ancho": 150,
-        "profundidad": 60
+        "alto": 60,
+        "ancho": 50,
+        "profundidad": 40
       }
     },
     {
       "id": 13,
       "nombre": "Mesa de estudio",
-      "descripcion": "Mesa de estudio de madera con estantes y espacio para computadora",
-      "precio": 249.99,
+      "descripcion": "Mesa de estudio con superficie amplia y estantes",
+      "imagen": "/products/mesa-de-estudio.webp",
+      "precio": 179.99,
       "stock": 6,
-      "categoria": "Escritorios",
-      "material": "Madera de abeto",
-      "color": "Blanco",
+      "categoria": "oficina",
+      "subCategoria": "escritorios",
+      "material": "madera de abedul",
+      "color": "blanco",
       "dimensiones": {
         "alto": 75,
         "ancho": 120,
@@ -197,107 +223,121 @@
     },
     {
       "id": 14,
-      "nombre": "Silla de escritorio",
-      "descripcion": "Silla de escritorio de madera con respaldo ergonómico",
-      "precio": 129.99,
+      "nombre": "Silla de salón",
+      "descripcion": "Silla de salón con cojín y estructura de acero",
+      "imagen": "/products/silla-de-salon.jpg",
+      "precio": 149.99,
       "stock": 8,
-      "categoria": "Sillas",
-      "material": "Madera de cerezo",
-      "color": "Negro",
+      "categoria": "living",
+      "subCategoria": "sillas",
+      "material": "tela y acero",
+      "color": "gris claro",
       "dimensiones": {
-        "alto": 100,
-        "ancho": 50,
-        "profundidad": 60
+        "alto": 90,
+        "ancho": 70,
+        "profundidad": 80
       }
     },
     {
       "id": 15,
-      "nombre": "Cómoda",
-      "descripcion": "Cómoda de madera con cajones y espejo",
-      "precio": 399.99,
-      "stock": 4,
-      "categoria": "Cómodas",
-      "material": "Madera de roble",
-      "color": "Marrón claro",
+      "nombre": "Mesa de cocina",
+      "descripcion": "Mesa de cocina con superficie de vidrio y patas de acero",
+      "imagen": "/products/mesa-de-cocina.jpg",
+      "precio": 199.99,
+      "stock": 5,
+      "categoria": "cocina",
+      "subCategoria": "mesas",
+      "material": "vidrio y acero",
+      "color": "negro",
       "dimensiones": {
-        "alto": 100,
-        "ancho": 80,
-        "profundidad": 40
+        "alto": 75,
+        "ancho": 120,
+        "profundidad": 80
       }
     },
     {
       "id": 16,
-      "nombre": "Mesa de comedor extensible",
-      "descripcion": "Mesa de comedor de madera extensible con capacidad para 8 personas",
-      "precio": 899.99,
-      "stock": 3,
-      "categoria": "Mesas",
-      "material": "Madera de nogal",
-      "color": "Natural",
+      "nombre": "Cómoda de madera",
+      "descripcion": "Cómoda de madera con cajones espaciosos",
+      "imagen": "/products/comoda-de-madera.jpg",
+      "precio": 349.99,
+      "stock": 4,
+      "categoria": "dormitorio",
+      "subCategoria": "cómodas",
+      "material": "madera de pino",
+      "color": "blanco",
       "dimensiones": {
-        "alto": 75,
-        "ancho": 160,
-        "profundidad": 90
+        "alto": 90,
+        "ancho": 120,
+        "profundidad": 40
       }
     },
     {
       "id": 17,
-      "nombre": "Sofá cama",
-      "descripcion": "Sofá cama de madera con tapizado de tela",
-      "precio": 699.99,
-      "stock": 5,
-      "categoria": "Sofás",
-      "material": "Madera de abeto",
-      "color": "Gris",
+      "nombre": "Sofá modular",
+      "descripcion": "Sofá modular con chaise longue y cojines reversibles",
+      "imagen": "/products/sofa-modular.jpg",
+      "precio": 1599.99,
+      "stock": 2,
+      "categoria": "living",
+      "subCategoria": "sofás",
+      "material": "tela",
+      "color": "gris oscuro",
       "dimensiones": {
         "alto": 85,
-        "ancho": 180,
-        "profundidad": 90
+        "ancho": 300,
+        "profundidad": 200
       }
     },
     {
       "id": 18,
-      "nombre": "Mesa auxiliar",
-      "descripcion": "Mesa auxiliar de madera con diseño moderno",
-      "precio": 129.99,
-      "stock": 10,
-      "categoria": "Mesas",
-      "material": "Madera de pino",
-      "color": "Blanco",
+      "nombre": "Mesa de escritorio",
+      "descripcion": "Mesa de escritorio con superficie de cristal templado",
+      "imagen": "/products/mesa-de-escritorio.jpg",
+      "precio": 219.99,
+      "stock": 6,
+      "categoria": "oficina",
+      "subCategoria": "escritorios",
+      "material": "vidrio y metal",
+      "color": "transparente",
       "dimensiones": {
-        "alto": 60,
-        "ancho": 50,
-        "profundidad": 50
+        "alto": 75,
+        "ancho": 120,
+        "profundidad": 60
       }
     },
     {
       "id": 19,
-      "nombre": "Librero",
-      "descripcion": "Librero de madera con estantes y puertas de vidrio",
-      "precio": 349.99,
-      "stock": 6,
-      "categoria": "Estanterías",
-      "material": "Madera de roble",
-      "color": "Marrón oscuro",
+      "nombre": "Taburete de bar",
+      "descripcion": "Taburete de bar giratorio con asiento acolchado",
+      "imagen": "/products/taburete-de-bar.jpg",
+      "precio": 89.99,
+      "stock": 10,
+      "categoria": "cocina",
+      "subCategoria": "taburetes",
+      "material": "metal y cuero sintético",
+      "color": "negro",
       "dimensiones": {
-        "alto": 180,
-        "ancho": 100,
-        "profundidad": 35
+        "alto": 100,
+        "ancho": 40,
+        "profundidad": 40
       }
     },
     {
       "id": 20,
-      "nombre": "Mesa de televisión",
-      "descripcion": "Mesa de televisión de madera con estantes y espacio para dispositivos",
-      "precio": 199.99,
-      "stock": 7,
-      "categoria": "Mesas",
-      "material": "Madera de abeto",
-      "color": "Marrón",
+      "nombre": "Silla de jardín",
+      "descripcion": "Silla de jardín plegable con reposabrazos",
+      "imagen": "/products/silla-de-jardin.jpg",
+      "precio": 59.99,
+      "stock": 15,
+      "categoria": "exterior",
+      "subCategoria": "sillas",
+      "material": "madera de eucalipto",
+      "color": "verde",
       "dimensiones": {
-        "alto": 50,
-        "ancho": 120,
-        "profundidad": 40
+        "alto": 90,
+        "ancho": 60,
+        "profundidad": 60
       }
     }
   ]

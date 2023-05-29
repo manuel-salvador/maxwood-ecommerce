@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @layer components {
   .button-primary {
     @apply min-w-fit px-4 py-2 rounded-sm transition-all duration-300 hover:brightness-110;
@@ -20,4 +26,9 @@
   .input-error-message {
     @apply absolute bottom-3 text-sm font-semibold text-red-600 flex items-center gap-2 transition-all;
   }
+
+  .divider {
+    @apply w-full h-[2px] bg-gray-300 relative after:absolute after:content-[''] after:w-1/4 after:h-[2px] after:bg-black;
+  }
 }
+

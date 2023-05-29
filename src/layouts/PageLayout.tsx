@@ -22,7 +22,7 @@ export default function PageLayout({ title, children, className, footer = true }
       </Head>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className={`flex-1 mt-16 ${className}`}>{children}</main>
+        <main className={`flex-1 mt-16 ${className || ''}`}>{children}</main>
         {footer && <Footer />}
       </div>
     </>
