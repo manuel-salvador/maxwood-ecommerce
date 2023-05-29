@@ -15,6 +15,7 @@ type Props = {
     updatePrecioMinMax: (nuevoPrecioMin: number, nuevoPrecioMax: number) => void;
     updateMateriales: (e: ChangeEvent<HTMLInputElement>) => void;
   };
+  setOrderBy: Dispatch<SetStateAction<string>>;
 };
 
 export default function FilterSection({
@@ -22,9 +23,14 @@ export default function FilterSection({
   setFiltersOppened,
   filters,
   applyFilters,
+  setOrderBy,
 }: Props) {
   const handleFiltersOpen = () => {
     setFiltersOppened(!filtersOppened);
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setOrderBy(e.target.value);
   };
 
   return (
@@ -40,10 +46,16 @@ export default function FilterSection({
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span>Ordenar por</span>
-          <span>
-            <ArrowDownIcon color="light-gray" />
-          </span>
+          <select
+            id="orderBy"
+            name="orderBy"
+            className="cursor-pointer text-gray-900 text-sm rounded-lg py-1"
+            onChange={handleChange}
+          >
+            <option hidden>Ordenar por</option>
+            <option value="asc">Precio menor a mayor</option>
+            <option value="des">Precio mayor a menor</option>
+          </select>
         </div>
       </div>
       <aside

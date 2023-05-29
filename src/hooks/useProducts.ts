@@ -17,13 +17,14 @@ export default function useProducts(url: string) {
     materiales: [],
   });
   const [productsFiltered, setproductsFiltered] = useState<IProduct[] | []>([]);
+  const [orderBy, setOrderBy] = useState<string>('');
 
   useEffect(() => {
     const getAllProducts = async () => {
       try {
         const response = await fetch(url);
-        const data = await response.json();
-        setProducts(data.productos);
+        const productos = await response.json();
+        setProducts(productos);
       } catch (error) {
         console.error(error);
       }
@@ -132,7 +133,15 @@ export default function useProducts(url: string) {
     },
   };
 
+  useEffect(() => {
+    const newProducts = [...allProducts].sort((p1, p2) =>
+      orderBy === 'asc' ? p1.precio - p2.precio : p2.precio - p1.precio,
+    );
+
+    setproductsFiltered(newProducts);
+  }, [orderBy]);
+
   const allProducts = productsFiltered.length > 0 ? productsFiltered : products;
 
-  return { products: allProducts, productFilters, setApplyFilters, filters };
+  return { products: allProducts, productFilters, setApplyFilters, filters, setOrderBy };
 }

@@ -33,7 +33,7 @@ export default function ProductCard({ product }: Props) {
           className="text-white object-cover"
         />
       </figure>
-      <div className="flex flex-col justify-between items-center gap-4 p-6 text-center flex-1">
+      <div className="flex flex-col justify-between items-center gap-4 p-6 text-center flex-1 border-t">
         <h3 className="font-bold text-xl">{product.nombre}</h3>
         <span className="font-bold text-xl">${product.precio}</span>
         <button className="button-primary text-secondary border border-secondary w-full flex justify-center items-center gap-2 hover:text-white hover:bg-secondary group">

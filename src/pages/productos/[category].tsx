@@ -5,10 +5,14 @@ import Breadcrumb from '@/components/shared/Breadcrumb';
 import ProductList from '@/components/pages/productos/ProductList';
 import FilterSection from '@/components/pages/productos/FilterSection';
 import useProducts from '@/hooks/useProducts';
+import { useRouter } from 'next/router';
 
-export default function ProductosPage() {
+export default function CategoryPage() {
+  const router = useRouter();
   const [filtersOppened, setFiltersOppened] = useState<boolean>(false);
-  const { products, productFilters, filters, setOrderBy } = useProducts('/api/products');
+  const { products, productFilters, filters, setOrderBy } = useProducts(
+    `/api/products/${router.query.category}`,
+  );
 
   return (
     <PageLayout title="Productos" className="relative" footer={!filtersOppened}>

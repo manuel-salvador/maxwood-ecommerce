@@ -30,16 +30,16 @@ export default function Header() {
             <Link href="/productos">Productos</Link>
           </li>
           <li className="link-animation">
-            <Link href="/">Dormitorio</Link>
+            <Link href="/productos/dormitorio">Dormitorio</Link>
           </li>
           <li className="link-animation">
-            <Link href="/">Cocina</Link>
+            <Link href="/productos/cocina">Cocina</Link>
           </li>
           <li className="link-animation">
-            <Link href="/">Living</Link>
+            <Link href="/productos/living">Living</Link>
           </li>
           <li className="link-animation">
-            <Link href="/">Exterior</Link>
+            <Link href="/productos/exterior">Exterior</Link>
           </li>
         </ul>
 
@@ -58,16 +58,16 @@ export default function Header() {
             <Link href="/productos">Productos</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Dormitorio</Link>
+            <Link href="/productos/dormitorio">Dormitorio</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Cocina</Link>
+            <Link href="/productos/cocina">Cocina</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Living</Link>
+            <Link href="/productos/living">Living</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/">Exterior</Link>
+            <Link href="/productos/exterior">Exterior</Link>
           </li>
           <div className="w-1/2 h-[2px] bg-gray-500" />
           <li onClick={handleMenu}>
