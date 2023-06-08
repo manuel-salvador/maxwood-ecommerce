@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import { useProductsContext } from '@/context/ProductsContext';
 import { useDebounce } from '@/hooks/useDebounce';
 
-import { LeftArrowIcon, LinkIcon, SearchIcon } from './shared/Icons';
+import { LeftArrowIcon, SearchIcon } from './shared/Icons';
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -186,8 +186,8 @@ export default function Search() {
       </div>
       <div
         id="searchMobile"
-        className={`absolute top-0  w-screen h-screen bg-white transition-all duration-500 z-20 ${
-          openSearch ? 'left-0' : '-left-full w-0'
+        className={`absolute top-0   h-screen bg-white transition-all duration-500 z-20 ${
+          openSearch ? 'left-0 right-0 w-screen' : '-left-full'
         }`}
       >
         <div className="flex items-center gap-4 px-4 py-2 shadow-md lg:hidden">

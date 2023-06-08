@@ -1,6 +1,6 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-import { ArrowDownIcon, FilterIcon } from '@/components/shared/Icons';
+import { FilterIcon } from '@/components/shared/Icons';
 import SliderRange from '@/components/pages/productos/SliderRange';
 import { IProductFilters } from '@/types';
 
