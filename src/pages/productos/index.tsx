@@ -4,11 +4,22 @@ import PageLayout from '@/layouts/PageLayout';
 import Breadcrumb from '@/components/shared/Breadcrumb';
 import ProductList from '@/components/pages/productos/ProductList';
 import FilterSection from '@/components/pages/productos/FilterSection';
-import useProducts from '@/hooks/useProducts';
+import useFilters from '@/hooks/useFilters';
+import { useProductsContext } from '@/context/ProductsContext';
 
 export default function ProductosPage() {
   const [filtersOppened, setFiltersOppened] = useState<boolean>(false);
-  const { products, productFilters, filters, setOrderBy } = useProducts('/api/products');
+  const { allProducts } = useProductsContext();
+
+  const {
+    products,
+    productFilters,
+    filters,
+    setOrderBy,
+    resetFilters,
+    updateFilters,
+    filterValues,
+  } = useFilters(allProducts);
 
   return (
     <PageLayout title="Productos" className="relative" footer={!filtersOppened}>
@@ -20,6 +31,9 @@ export default function ProductosPage() {
           filters={productFilters}
           applyFilters={filters}
           setOrderBy={setOrderBy}
+          updateFilters={updateFilters}
+          resetFilters={resetFilters}
+          filterValues={filterValues}
         />
         <ProductList filtersOppened={filtersOppened} products={products} setOrderBy={setOrderBy} />
       </div>

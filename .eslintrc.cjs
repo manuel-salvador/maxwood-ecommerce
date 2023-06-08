@@ -33,7 +33,6 @@ module.exports = {
       },
     ],
     'react/self-closing-comp': 'warn',
-    'no-unused-vars': 'warn',
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'import/order': [
       'warn',
@@ -49,5 +48,6 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'react-hooks/exhaustive-deps': 'off',
   },
 };

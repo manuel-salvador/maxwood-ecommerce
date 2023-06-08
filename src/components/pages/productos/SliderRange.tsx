@@ -1,30 +1,46 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 type Props = {
   initialValues: number[];
   setNewPrices: (nuevoPrecioMin: number, nuevoPrecioMax: number) => void;
+  values: number[];
 };
 
-export default function SliderRange({ initialValues, setNewPrices }: Props) {
-  const [values, setValues] = useState(initialValues);
+export default function SliderRange({ initialValues, setNewPrices, values = [0, 0] }: Props) {
+  const [sliderValues, setSliderValues] = useState<number[]>([]);
   const [newRange, setNewRange] = useState<boolean>(false);
 
   useEffect(() => {
-    setValues(initialValues);
+    setNewPrices(initialValues[0], initialValues[1]);
+    setSliderValues(initialValues);
   }, [initialValues]);
 
-  const handleChange = (value: any) => {
-    setValues(value);
-    if (!newRange) {
-      setNewRange(true);
+  useEffect(() => {
+    if (values[0] === initialValues[0] && values[1] === initialValues[1]) {
+      setSliderValues(initialValues);
+    }
+  }, [values]);
+
+  useEffect(() => {
+    if (sliderValues[0] === values[0] && sliderValues[1] === values[1]) {
+      setNewRange(false);
+    }
+  }, [sliderValues]);
+
+  const handleChange = (value: number | number[]) => {
+    if (Array.isArray(value)) {
+      setSliderValues(value);
+      if (!newRange) {
+        setNewRange(true);
+      }
     }
   };
 
   const handleApply = () => {
     setNewRange(false);
-    setNewPrices(values[0], values[1]);
+    setNewPrices(sliderValues[0], sliderValues[1]);
   };
 
   return (
@@ -34,7 +50,7 @@ export default function SliderRange({ initialValues, setNewPrices }: Props) {
         min={initialValues[0]}
         max={initialValues[1]}
         step={10}
-        value={values}
+        value={sliderValues}
         onChange={handleChange}
         trackStyle={[{ backgroundColor: '#CF8420' }]}
         handleStyle={[
@@ -45,8 +61,8 @@ export default function SliderRange({ initialValues, setNewPrices }: Props) {
         draggableTrack={true}
       />
       <div className="flex justify-between">
-        <span>${values[0]}</span>
-        <span>${values[1]}</span>
+        <span>${sliderValues[0]}</span>
+        <span>${sliderValues[1]}</span>
       </div>
       {newRange && (
         <button

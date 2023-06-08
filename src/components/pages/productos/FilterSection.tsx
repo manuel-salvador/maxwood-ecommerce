@@ -10,12 +10,15 @@ type Props = {
   filtersOppened: boolean;
   setFiltersOppened: Dispatch<SetStateAction<boolean>>;
   filters: IProductFilters;
+  updateFilters: IProductFilters;
   applyFilters: {
     updateSubCategories: (e: ChangeEvent<HTMLInputElement>) => void;
     updatePrecioMinMax: (nuevoPrecioMin: number, nuevoPrecioMax: number) => void;
     updateMateriales: (e: ChangeEvent<HTMLInputElement>) => void;
   };
   setOrderBy: Dispatch<SetStateAction<string>>;
+  resetFilters: () => void;
+  filterValues: { [clave: string]: boolean | number[] };
 };
 
 export default function FilterSection({
@@ -24,6 +27,9 @@ export default function FilterSection({
   filters,
   applyFilters,
   setOrderBy,
+  resetFilters,
+  updateFilters,
+  filterValues,
 }: Props) {
   const handleFiltersOpen = () => {
     setFiltersOppened(!filtersOppened);
@@ -80,22 +86,39 @@ export default function FilterSection({
           <span className="md:hidden" onClick={handleFiltersOpen}>
             Cerrar
           </span>
-          <span className="md:hidden">Borrar filtros</span>
+          <span className="md:hidden" onClick={resetFilters}>
+            Borrar filtros
+          </span>
         </div>
         <div id="filters" className="p-4 w-full md:p-0">
           <span className="text-2xl font-bold mb-4 block">Filtros</span>
+          <button
+            className={`hidden button-primary border-2 border-gray-500 hover:border-gray-400 rounded-md ${
+              !!updateFilters.categorias.length ||
+              !!updateFilters.materiales.length ||
+              !!updateFilters.subCategorias.length ||
+              updateFilters.precioMinMax[0] !== filters.precioMinMax[0] ||
+              updateFilters.precioMinMax[1] !== filters.precioMinMax[1]
+                ? 'md:block'
+                : ''
+            }`}
+            onClick={resetFilters}
+          >
+            Borrar filtros
+          </button>
           <div className="flex flex-col gap-4">
             <FilterItem title="Categorias">
-              {filters?.subCategorias.map((category) => (
-                <label key={category} className="cursor-pointer" htmlFor={category}>
+              {filters?.subCategorias.map((subCategory) => (
+                <label key={subCategory} className="cursor-pointer" htmlFor={subCategory}>
                   <input
-                    id={category}
+                    id={subCategory}
                     type="checkbox"
-                    name={category}
+                    name={subCategory}
                     className="mr-2"
                     onChange={applyFilters.updateSubCategories}
+                    checked={!!filterValues[subCategory] as boolean}
                   />
-                  <span className="first-letter:capitalize inline-block">{category}</span>
+                  <span className="first-letter:capitalize inline-block">{subCategory}</span>
                 </label>
               ))}
             </FilterItem>
@@ -104,20 +127,22 @@ export default function FilterSection({
               <SliderRange
                 initialValues={filters.precioMinMax}
                 setNewPrices={applyFilters.updatePrecioMinMax}
+                values={filterValues['precioMinMax'] as number[]}
               />
             </FilterItem>
 
             <FilterItem title="Material">
-              {filters?.materiales.map((filter) => (
-                <label key={filter} className="cursor-pointer" htmlFor={filter}>
+              {filters?.materiales.map((material) => (
+                <label key={material} className="cursor-pointer" htmlFor={material}>
                   <input
-                    id={filter}
+                    id={material}
                     type="checkbox"
-                    name={filter}
+                    name={material}
                     className="mr-2"
                     onChange={applyFilters.updateMateriales}
+                    checked={!!filterValues[material] as boolean}
                   />
-                  <span className="first-letter:capitalize inline-block">{filter}</span>
+                  <span className="first-letter:capitalize inline-block">{material}</span>
                 </label>
               ))}
             </FilterItem>

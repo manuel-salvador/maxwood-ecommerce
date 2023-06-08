@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import {
-  BurgerMenuIcon,
-  CartIcon,
-  CloseIcon,
-  SearchIcon,
-  UserIcon,
-} from '@/components/shared/Icons';
+import { BurgerMenuIcon, CartIcon, CloseIcon, UserIcon } from '@/components/shared/Icons';
+
+import Search from './Search';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenu = () => {
     setMenuOpen(!menuOpen);
+    if (!menuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
   };
 
   return (
@@ -30,21 +31,22 @@ export default function Header() {
             <Link href="/productos">Productos</Link>
           </li>
           <li className="link-animation">
-            <Link href="/productos/dormitorio">Dormitorio</Link>
+            <Link href="/productos/categoria/dormitorio">Dormitorio</Link>
           </li>
           <li className="link-animation">
-            <Link href="/productos/cocina">Cocina</Link>
+            <Link href="/productos/categoria/cocina">Cocina</Link>
           </li>
           <li className="link-animation">
-            <Link href="/productos/living">Living</Link>
+            <Link href="/productos/categoria/living">Living</Link>
           </li>
           <li className="link-animation">
-            <Link href="/productos/exterior">Exterior</Link>
+            <Link href="/productos/categoria/exterior">Exterior</Link>
           </li>
         </ul>
 
         <ul
-          className={`absolute bg-white text-xl w-screen h-screen flex flex-col items-center gap-6 py-6 px-8 top-0 transition-all duration-300 ${
+          id="menuMobile"
+          className={`z-20 absolute bg-white text-xl w-screen h-screen flex flex-col items-center gap-6 py-6 px-8 top-0 transition-all duration-300 ${
             menuOpen ? 'opacity-100 right-0' : 'opacity-0 -right-full'
           } `}
         >
@@ -58,16 +60,16 @@ export default function Header() {
             <Link href="/productos">Productos</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/productos/dormitorio">Dormitorio</Link>
+            <Link href="/productos/categoria/dormitorio">Dormitorio</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/productos/cocina">Cocina</Link>
+            <Link href="/productos/categoria/cocina">Cocina</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/productos/living">Living</Link>
+            <Link href="/productos/categoria/living">Living</Link>
           </li>
           <li onClick={handleMenu}>
-            <Link href="/productos/exterior">Exterior</Link>
+            <Link href="/productos/categoria/exterior">Exterior</Link>
           </li>
           <div className="w-1/2 h-[2px] bg-gray-500" />
           <li onClick={handleMenu}>
@@ -80,18 +82,7 @@ export default function Header() {
       </nav>
 
       <div className="flex items-center gap-4 md:flex-1 md:justify-end">
-        <div>
-          <span className="block lg:hidden">
-            <SearchIcon />
-          </span>
-          <div className="hidden lg:block">
-            <input
-              type="text"
-              placeholder="¿Qué estas buscando?"
-              className="border border-gray-300 px-2 py-1 rounded-md"
-            />
-          </div>
-        </div>
+        <Search />
         <CartIcon />
         <span className="hidden md:block relative group">
           <UserIcon />

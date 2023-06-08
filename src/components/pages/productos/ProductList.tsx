@@ -1,7 +1,8 @@
 import type { IProduct } from '@/types';
 
-import ProductCard from './ProductCard';
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+
+import ProductCard from './ProductCard';
 
 type Props = {
   filtersOppened: boolean;

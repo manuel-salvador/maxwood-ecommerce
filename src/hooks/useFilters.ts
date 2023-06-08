@@ -2,67 +2,51 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import { IProduct, IProductFilters } from '@/types';
 
-export default function useProducts(url: string) {
-  const [products, setProducts] = useState<IProduct[] | []>([]);
-  const [productFilters, setProductFilters] = useState<IProductFilters>({
-    categorias: [],
-    subCategorias: [],
-    precioMinMax: [0, 0],
-    materiales: [],
-  });
-  const [applyFilters, setApplyFilters] = useState<IProductFilters>({
-    categorias: [],
-    subCategorias: [],
-    precioMinMax: [0, 0],
-    materiales: [],
-  });
+const INITIAL_PRODUCT_FILTERS = {
+  categorias: [],
+  subCategorias: [],
+  precioMinMax: [0, 0],
+  materiales: [],
+};
+
+export default function useFilters(products: IProduct[]) {
+  const [productFilters, setProductFilters] = useState<IProductFilters>(INITIAL_PRODUCT_FILTERS);
+  const [applyFilters, setApplyFilters] = useState<IProductFilters>(INITIAL_PRODUCT_FILTERS);
+  const [filterValues, setFilterValues] = useState<{
+    [clave: string]: boolean | number[];
+  }>({});
   const [productsFiltered, setproductsFiltered] = useState<IProduct[] | []>([]);
   const [orderBy, setOrderBy] = useState<string>('');
 
   useEffect(() => {
-    const getAllProducts = async () => {
-      try {
-        const response = await fetch(url);
-        const productos = await response.json();
-        setProducts(productos);
-      } catch (error) {
-        console.error(error);
+    const setAllFilters = () => {
+      if (products.length > 0) {
+        const categoriasUnicas = products
+          .map((product) => product.categoria)
+          .filter((value, index, self) => self.indexOf(value) === index);
+
+        const subCategoriasUnicas = products
+          .map((product) => product.subCategoria)
+          .filter((value, index, self) => self.indexOf(value) === index);
+
+        const materialesUnicos = products
+          .map((product) => product.material)
+          .filter((value, index, self) => self.indexOf(value) === index);
+
+        const precios = products.map((product) => product.precio);
+        const precioMinimo = Math.min(...precios);
+        const precioMaximo = Math.max(...precios);
+
+        setProductFilters({
+          categorias: categoriasUnicas,
+          subCategorias: subCategoriasUnicas,
+          precioMinMax: [precioMinimo, precioMaximo],
+          materiales: materialesUnicos,
+        });
       }
     };
-
-    getAllProducts();
-  }, [url]);
-
-  useEffect(() => {
     setAllFilters();
   }, [products]);
-
-  const setAllFilters = () => {
-    if (products.length > 0) {
-      const categoriasUnicas = products
-        .map((product) => product.categoria)
-        .filter((value, index, self) => self.indexOf(value) === index);
-
-      const subCategoriasUnicas = products
-        .map((product) => product.subCategoria)
-        .filter((value, index, self) => self.indexOf(value) === index);
-
-      const materialesUnicos = products
-        .map((product) => product.material)
-        .filter((value, index, self) => self.indexOf(value) === index);
-
-      const precios = products.map((product) => product.precio);
-      const precioMinimo = Math.min(...precios);
-      const precioMaximo = Math.max(...precios);
-
-      setProductFilters({
-        categorias: categoriasUnicas,
-        subCategorias: subCategoriasUnicas,
-        precioMinMax: [precioMinimo, precioMaximo],
-        materiales: materialesUnicos,
-      });
-    }
-  };
 
   useEffect(() => {
     const { categorias, subCategorias, materiales, precioMinMax } = applyFilters;
@@ -113,12 +97,16 @@ export default function useProducts(url: string) {
           ? [...prevFilters.subCategorias, subCategory]
           : prevFilters.subCategorias.filter((cat) => cat !== subCategory),
       }));
+
+      updateFiltersValues(subCategory, isChecked);
     },
     updatePrecioMinMax: (nuevoPrecioMin: number, nuevoPrecioMax: number) => {
       setApplyFilters((prevFilters) => ({
         ...prevFilters,
         precioMinMax: [nuevoPrecioMin, nuevoPrecioMax],
       }));
+
+      updateFiltersValues('precioMinMax', [nuevoPrecioMin, nuevoPrecioMax]);
     },
     updateMateriales: (e: ChangeEvent<HTMLInputElement>) => {
       const material = e.target.name;
@@ -130,7 +118,16 @@ export default function useProducts(url: string) {
           ? [...prevFilters.materiales, material]
           : prevFilters.materiales.filter((cat) => cat !== material),
       }));
+
+      updateFiltersValues(material, isChecked);
     },
+  };
+
+  const updateFiltersValues = (key: string, value: boolean | number[]) => {
+    setFilterValues((prevValues) => ({
+      ...prevValues,
+      [key]: value,
+    }));
   };
 
   useEffect(() => {
@@ -141,7 +138,27 @@ export default function useProducts(url: string) {
     setproductsFiltered(newProducts);
   }, [orderBy]);
 
+  const resetFilters = () => {
+    setApplyFilters({
+      ...INITIAL_PRODUCT_FILTERS,
+      precioMinMax: productFilters.precioMinMax,
+    });
+    setFilterValues({
+      precioMinMax: productFilters.precioMinMax,
+    });
+  };
+
   const allProducts = productsFiltered.length > 0 ? productsFiltered : products;
 
-  return { products: allProducts, productFilters, setApplyFilters, filters, setOrderBy };
+  return {
+    products: allProducts,
+    productFilters,
+    setApplyFilters,
+    filters,
+    updateFilters: applyFilters,
+    setOrderBy,
+    resetFilters,
+    filterValues,
+    setFilterValues,
+  };
 }

@@ -24,3 +24,12 @@ export interface IProductFilters {
   precioMinMax: number[];
   materiales: string[];
 }
+
+export interface IProductContextType {
+  allProducts: IProduct[];
+  products: IProduct[];
+  categories: string[];
+  getProductsByCategory: (category: string) => void;
+  loadingData: boolean;
+  getProductsBySearch: (query: string) => void;
+}
