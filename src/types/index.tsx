@@ -3,6 +3,7 @@ export interface IProduct {
   nombre: string;
   descripcion: string;
   imagen: string;
+  imagenes: Imagenes[];
   precio: number;
   stock: number;
   categoria: string;
@@ -12,7 +13,12 @@ export interface IProduct {
   dimensiones: Dimensions;
 }
 
-export interface Dimensions {
+interface Imagenes {
+  alt: string;
+  url: string;
+}
+
+interface Dimensions {
   alto: number;
   ancho: number;
   profundidad: number;

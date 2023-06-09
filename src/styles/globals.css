@@ -6,6 +6,11 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 @layer components {
@@ -31,4 +36,3 @@
     @apply w-full h-[2px] bg-gray-300 relative after:absolute after:content-[''] after:w-1/4 after:h-[2px] after:bg-black;
   }
 }
-

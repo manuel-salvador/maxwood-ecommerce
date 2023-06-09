@@ -1,11 +1,12 @@
 import Head from 'next/head';
+import { ReactNode } from 'react';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 type PageProps = {
   title: string;
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | ReactNode;
   className?: string;
   footer?: boolean;
 };

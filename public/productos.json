@@ -5,7 +5,18 @@
       "nombre": "Sofá cama",
       "descripcion": "Sofá cama de dos plazas con diseño moderno",
       "imagen": "/products/sofa-cama.jpg",
-      "precio": 899.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/sofa-cama.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 899,
       "stock": 10,
       "categoria": "living",
       "subCategoria": "sofás",
@@ -22,7 +33,18 @@
       "nombre": "Mesa de comedor",
       "descripcion": "Mesa de comedor extensible para seis personas",
       "imagen": "/products/mesa-de-comedor.webp",
-      "precio": 499.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-comedor.webp" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 499,
       "stock": 5,
       "categoria": "cocina",
       "subCategoria": "mesas",
@@ -39,7 +61,18 @@
       "nombre": "Cama queen",
       "descripcion": "Cama queen con cabecera acolchada",
       "imagen": "/products/cama-queen.jpg",
-      "precio": 699.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/cama-queen.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 699,
       "stock": 3,
       "categoria": "dormitorio",
       "subCategoria": "camas",
@@ -56,7 +89,18 @@
       "nombre": "Silla de escritorio",
       "descripcion": "Silla de escritorio ergonómica con respaldo ajustable",
       "imagen": "/products/silla-de-escritorio.jpg",
-      "precio": 129.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/silla-de-escritorio.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 129,
       "stock": 8,
       "categoria": "oficina",
       "subCategoria": "sillas",
@@ -73,7 +117,18 @@
       "nombre": "Sofá seccional",
       "descripcion": "Sofá seccional de cuero con asientos reclinables",
       "imagen": "/products/sofa-seccional.webp",
-      "precio": 1299.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/sofa-seccional.webp" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 1299,
       "stock": 2,
       "categoria": "living",
       "subCategoria": "sofás",
@@ -90,7 +145,18 @@
       "nombre": "Escritorio de madera",
       "descripcion": "Escritorio de madera con cajones y espacio para computadora",
       "imagen": "/products/escritorio-de-madera.jpg",
-      "precio": 299.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/escritorio-de-madera.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 299,
       "stock": 6,
       "categoria": "oficina",
       "subCategoria": "escritorios",
@@ -107,7 +173,18 @@
       "nombre": "Mesa de centro",
       "descripcion": "Mesa de centro de vidrio templado con base de acero inoxidable",
       "imagen": "/products/mesa-de-centro.jpg",
-      "precio": 249.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-centro.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 249,
       "stock": 4,
       "categoria": "living",
       "subCategoria": "mesas",
@@ -124,7 +201,18 @@
       "nombre": "Cama individual",
       "descripcion": "Cama individual con diseño minimalista",
       "imagen": "/products/cama-individual.jpg",
-      "precio": 399.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/cama-individual.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 399,
       "stock": 7,
       "categoria": "dormitorio",
       "subCategoria": "camas",
@@ -141,7 +229,18 @@
       "nombre": "Silla de comedor",
       "descripcion": "Silla de comedor con respaldo curvado y asiento acolchado",
       "imagen": "/products/silla-de-comedor.webp",
-      "precio": 79.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/silla-de-comedor.webp" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 79,
       "stock": 12,
       "categoria": "cocina",
       "subCategoria": "sillas",
@@ -158,7 +257,18 @@
       "nombre": "Armario de almacenamiento",
       "descripcion": "Armario de almacenamiento con puertas corredizas",
       "imagen": "/products/armario-de-almacenamiento.jpg",
-      "precio": 599.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/armario-de-almacenamiento.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 599,
       "stock": 3,
       "categoria": "dormitorio",
       "subCategoria": "armarios",
@@ -175,7 +285,18 @@
       "nombre": "Sofá de cuero",
       "descripcion": "Sofá de cuero con detalles de costura y patas de acero",
       "imagen": "/products/sofa-de-cuero.jpg",
-      "precio": 1099.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/sofa-de-cuero.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 1099,
       "stock": 5,
       "categoria": "living",
       "subCategoria": "sofás",
@@ -192,7 +313,18 @@
       "nombre": "Mesa de noche",
       "descripcion": "Mesa de noche con cajón y estante",
       "imagen": "/products/mesa-de-noche.jpg",
-      "precio": 99.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-noche.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 99,
       "stock": 9,
       "categoria": "dormitorio",
       "subCategoria": "mesas",
@@ -209,7 +341,18 @@
       "nombre": "Mesa de estudio",
       "descripcion": "Mesa de estudio con superficie amplia y estantes",
       "imagen": "/products/mesa-de-estudio.webp",
-      "precio": 179.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-estudio.webp" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 179,
       "stock": 6,
       "categoria": "oficina",
       "subCategoria": "escritorios",
@@ -226,7 +369,18 @@
       "nombre": "Silla de salón",
       "descripcion": "Silla de salón con cojín y estructura de acero",
       "imagen": "/products/silla-de-salon.jpg",
-      "precio": 149.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/silla-de-salon.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 149,
       "stock": 8,
       "categoria": "living",
       "subCategoria": "sillas",
@@ -243,7 +397,18 @@
       "nombre": "Mesa de cocina",
       "descripcion": "Mesa de cocina con superficie de vidrio y patas de acero",
       "imagen": "/products/mesa-de-cocina.jpg",
-      "precio": 199.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-cocina.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 199,
       "stock": 5,
       "categoria": "cocina",
       "subCategoria": "mesas",
@@ -260,7 +425,18 @@
       "nombre": "Cómoda de madera",
       "descripcion": "Cómoda de madera con cajones espaciosos",
       "imagen": "/products/comoda-de-madera.jpg",
-      "precio": 349.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/comoda-de-madera.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 349,
       "stock": 4,
       "categoria": "dormitorio",
       "subCategoria": "cómodas",
@@ -277,7 +453,18 @@
       "nombre": "Sofá modular",
       "descripcion": "Sofá modular con chaise longue y cojines reversibles",
       "imagen": "/products/sofa-modular.jpg",
-      "precio": 1599.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/sofa-modular.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 1599,
       "stock": 2,
       "categoria": "living",
       "subCategoria": "sofás",
@@ -294,7 +481,18 @@
       "nombre": "Mesa de escritorio",
       "descripcion": "Mesa de escritorio con superficie de cristal templado",
       "imagen": "/products/mesa-de-escritorio.jpg",
-      "precio": 219.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/mesa-de-escritorio.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 219,
       "stock": 6,
       "categoria": "oficina",
       "subCategoria": "escritorios",
@@ -311,7 +509,18 @@
       "nombre": "Taburete de bar",
       "descripcion": "Taburete de bar giratorio con asiento acolchado",
       "imagen": "/products/taburete-de-bar.jpg",
-      "precio": 89.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/taburete-de-bar.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 89,
       "stock": 10,
       "categoria": "cocina",
       "subCategoria": "taburetes",
@@ -328,7 +537,18 @@
       "nombre": "Silla de jardín",
       "descripcion": "Silla de jardín plegable con reposabrazos",
       "imagen": "/products/silla-de-jardin.jpg",
-      "precio": 59.99,
+      "imagenes": [
+        { "alt": "", "url": "/products/silla-de-jardin.jpg" },
+        {
+          "alt": "Imagen test 1",
+          "url": "https://cdn.shopify.com/s/files/1/0585/2050/2462/files/Kenton_Black_Bedroom_Furniture_square_a85a57e9-65ea-4056-97a1-473aeffe7ba9_500x.jpg?v=1678961637"
+        },
+        {
+          "alt": "Imagen test 2",
+          "url": "https://m.media-amazon.com/images/I/61jDssWaZAL.jpg"
+        }
+      ],
+      "precio": 59,
       "stock": 15,
       "categoria": "exterior",
       "subCategoria": "sillas",
