@@ -8,6 +8,7 @@ import { IProduct } from '@/types';
 import { CartIcon, HeartIcon, StarIcon } from '@/components/shared/Icons';
 import ProductCard from '@/components/pages/productos/ProductCard';
 import Loader from '@/components/shared/Loader';
+import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
 
 export default function ProductDetail() {
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -87,15 +88,12 @@ export default function ProductDetail() {
     >
       <section id="mainDetails" className="flex flex-col md:flex-row gap-10">
         <div className="flex-1">
-          <figure className="w-full aspect-square relative mb-6 overflow-hidden">
-            <Image
-              src={mainImage}
-              alt={product.nombre}
-              fill
-              className="hover:scale-125 transition-transform duration-300"
-            />
-          </figure>
-          <div className="flex w-full gap-6">
+          <ImageMagnifier
+            src={mainImage}
+            alt={`Imagen principal del producto ${product.nombre}`}
+            className="w-full aspect-square relative overflow-hidden"
+          />
+          <div className="flex w-full gap-6 mt-6">
             {product.imagenes.map((imagen, idx) => (
               <figure
                 key={imagen.alt}
@@ -111,7 +109,7 @@ export default function ProductDetail() {
         </div>
         <div className="flex flex-col gap-4">
           <h1 className="font-semibold text-2xl uppercase tracking-wide">{product.nombre}</h1>
-          <div id="ratings" className="flex justify-between sm:justify-normal gap-3">
+          <div id="ratings" className="flex justify-between items-center sm:justify-normal gap-3">
             <div id="stars" className="flex gap-2">
               <StarIcon size={18} fill />
               <StarIcon size={18} fill />
