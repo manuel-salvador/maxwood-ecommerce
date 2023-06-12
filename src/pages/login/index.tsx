@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 
 import PageLayout from '@/layouts/PageLayout';
-import { AtIcon, CheckIcon, ErrorIcon, LockIcon } from '@/components/shared/Icons';
+import { AtIcon, CheckIcon, ErrorIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
 
 const isRequired = 'Campo requerido';
 const validationSchema = Yup.object({
@@ -18,6 +18,7 @@ const validationSchema = Yup.object({
 
 export default function LoginPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
@@ -62,7 +63,7 @@ export default function LoginPage() {
         </div>
         <div className="pb-8 w-full flex justify-center relative">
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
             name="password"
             onChange={handleChange}
@@ -70,8 +71,11 @@ export default function LoginPage() {
             placeholder="Contraseña"
             className={`input pr-8 ${submitted && errors.password ? 'border-red-600' : null}`}
           />
-          <span className="absolute right-2 top-2">
-            <LockIcon size={18} />
+          <span
+            className="absolute right-1 top-1 cursor-pointer hover:bg-gray-200 rounded-full p-1"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <LockOpenIcon size={21} /> : <LockIcon size={20} />}
           </span>
           <div
             className={`input-error-message overflow-hidden ${
