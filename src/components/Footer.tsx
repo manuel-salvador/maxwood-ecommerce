@@ -34,13 +34,31 @@ export default function Footer() {
 
           <div className="flex gap-3 self-center">
             <figure className="relative w-16 h-16">
-              <Image src="/footer/cace.png" alt="Credencial CACE" fill className="object-cover" />
+              <Image
+                src="/footer/cace.png"
+                alt="Credencial CACE"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </figure>
             <figure className="relative w-16 h-16">
-              <Image src="/footer/ssl.png" alt="Credencial SSL" fill className="object-cover" />
+              <Image
+                src="/footer/ssl.png"
+                alt="Credencial SSL"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </figure>
             <figure className="relative w-16 h-16">
-              <Image src="/footer/afip.png" alt="Credencial AFIP" fill className="object-cover" />
+              <Image
+                src="/footer/afip.png"
+                alt="Credencial AFIP"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </figure>
           </div>
         </div>
