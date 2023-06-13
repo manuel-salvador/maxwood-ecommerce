@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import PerfilAside from '@/components/pages/cuenta/AccountAside';
-import PageLayout from '@/layouts/PageLayout';
 import { EditIcon } from '@/components/shared/Icons';
 import AccountLayout from '@/layouts/AccountLayout';
 
