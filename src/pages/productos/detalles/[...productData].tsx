@@ -137,7 +137,7 @@ export default function ProductDetail() {
               className="flex justify-between items-center h-full border border-light-gray rounded-sm text-lg font-semibold w-[6rem]"
             >
               <span
-                className="cursor-pointer block flex-1 text-center py-1"
+                className="cursor-pointer block flex-1 text-center py-1 select-none"
                 onClick={() => handleQuantity(quantity - 1)}
               >
                 -
@@ -149,7 +149,7 @@ export default function ProductDetail() {
                 onChange={(e) => handleQuantity(Number(e.target.value))}
               />
               <span
-                className="cursor-pointer block flex-1 py-1 text-center"
+                className="cursor-pointer block flex-1 py-1 text-center select-none"
                 onClick={() => handleQuantity(quantity + 1)}
               >
                 +

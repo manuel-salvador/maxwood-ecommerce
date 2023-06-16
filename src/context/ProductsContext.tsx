@@ -95,7 +95,7 @@ function ProductsProvider({ children }: { children: ReactNode }) {
 
     if (existingCartItem) {
       newCartItems = cartItems.map((item) =>
-        item.product.id === productId ? { ...item, quantity: item.quantity + quantity } : item,
+        item.product.id === productId ? { ...item, quantity: quantity } : item,
       );
 
       setCartItems(newCartItems);

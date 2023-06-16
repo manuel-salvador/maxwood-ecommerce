@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { useProductsContext } from '@/context/ProductsContext';
 
@@ -10,6 +11,8 @@ export default function CartModal() {
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [isFreeShip, setIsFreeShip] = useState(false);
+
+  const router = useRouter();
 
   const { isCartModalOpen, closeCartModal, cartItems } = useProductsContext();
 
@@ -36,6 +39,15 @@ export default function CartModal() {
     console.log({ products: cartItems, total });
   };
 
+  const handleSeeMoreProducts = () => {
+    const paths = router.asPath.split('/');
+    const inCategory = paths[2] === 'categoria';
+    if (!inCategory) {
+      router.push('/productos');
+    }
+    closeCartModal();
+  };
+
   return (
     <div
       className={`z-30 absolute top-0 left-0 overflow-hidden transition-opacity duration-700 ${
@@ -60,13 +72,12 @@ export default function CartModal() {
           {cartItems.length <= 0 ? (
             <div className="py-8 flex flex-col items-center gap-4">
               <span className="text-lg">El carrito de compras esta vacío.</span>
-              <Link
-                href="/productos"
-                className="button-primary bg-secondary text-white"
-                onClick={closeCartModal}
+              <span
+                className="button-primary bg-secondary text-white cursor-pointer"
+                onClick={handleSeeMoreProducts}
               >
                 Ver productos
-              </Link>
+              </span>
             </div>
           ) : (
             <>
@@ -156,14 +167,6 @@ export default function CartModal() {
                 >
                   INICIAR COMPRA
                 </button>
-              </div>
-              <div className="py-4">
-                <span
-                  className="text-center w-fit mx-auto block cursor-pointer link-animation"
-                  onClick={closeCartModal}
-                >
-                  Seguir comprando
-                </span>
               </div>
             </>
           )}
