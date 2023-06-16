@@ -2,10 +2,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import { BurgerMenuIcon, CartIcon, CloseIcon, UserIcon } from '@/components/shared/Icons';
+import { useProductsContext } from '@/context/ProductsContext';
 
 import Search from './Search';
+import CartModal from './CartModal';
 
 export default function Header() {
+  const { openCartModal, cartItems } = useProductsContext();
+
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenu = () => {
@@ -85,7 +89,14 @@ export default function Header() {
 
       <div className="flex items-center gap-4 md:flex-1 md:justify-end">
         <Search />
-        <CartIcon />
+        <span className="cursor-pointer relative" onClick={openCartModal}>
+          <CartIcon />
+          {cartItems.length > 0 && (
+            <span className="absolute -top-1/3 -right-1/3 rounded-full h-4 w-4 flex items-center justify-center bg-secondary text-xs text-white">
+              {cartItems.length}
+            </span>
+          )}
+        </span>
         <span className="hidden md:block relative group">
           <UserIcon />
           <div className="opacity-0 top-full absolute -right-36 bg-gray-50 rounded-md shadow-md py-2 px-4 w-32 items-end gap-1 flex flex-col group-hover:-right-4 group-hover:opacity-100 transition-all duration-300">
@@ -101,6 +112,7 @@ export default function Header() {
           <BurgerMenuIcon />
         </span>
       </div>
+      <CartModal />
     </header>
   );
 }

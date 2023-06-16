@@ -1,25 +1,32 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
-import { IProduct, IProductContextType } from '@/types';
+import { ICartItem, IProduct, IProductContextType } from '@/types';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 const ProductsContext = createContext<IProductContextType>({
   allProducts: [],
   products: [],
   categories: [],
-  getProductsByCategory: () => {
-    return {};
-  },
+  getProductsByCategory: () => ({}),
   loadingData: false,
-  getProductsBySearch: () => {
-    return {};
-  },
+  getProductsBySearch: () => ({}),
+  cartItems: [],
+  addToCart: () => ({}),
+  removeFromCart: () => ({}),
+  updateCartItemQuantity: () => ({}),
+  isCartModalOpen: false,
+  openCartModal: () => ({}),
+  closeCartModal: () => ({}),
 });
 
 function ProductsProvider({ children }: { children: ReactNode }) {
+  const [cartItems, setCartItems] = useLocalStorage<ICartItem[]>('CART_ITEMS_V1', []);
+
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [loadingData, setLoadingData] = useState(false);
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   // Obtener todos los productos
   useEffect(() => {
@@ -82,6 +89,53 @@ function ProductsProvider({ children }: { children: ReactNode }) {
     getCategories();
   }, []);
 
+  const addToCart = ({ productId, quantity = 1 }: { productId: number; quantity?: number }) => {
+    const existingCartItem = cartItems.find((item) => item.product.id === productId);
+    let newCartItems: ICartItem[];
+
+    if (existingCartItem) {
+      newCartItems = cartItems.map((item) =>
+        item.product.id === productId ? { ...item, quantity: item.quantity + quantity } : item,
+      );
+
+      setCartItems(newCartItems);
+    } else {
+      const product = allProducts.find((product) => product.id === productId);
+      if (!product) return;
+      newCartItems = [...cartItems, { product, quantity }];
+      setCartItems(newCartItems);
+    }
+  };
+
+  const removeFromCart = (productId: number) => {
+    const newCartItems = [...cartItems].filter((item) => item.product.id !== productId);
+    setCartItems(newCartItems);
+  };
+
+  const updateCartItemQuantity = ({
+    productId,
+    quantity,
+  }: {
+    productId: number;
+    quantity: number;
+  }) => {
+    const newCartItems = cartItems.map((item) =>
+      item.product.id === productId ? { ...item, quantity } : item,
+    );
+
+    setCartItems(newCartItems);
+  };
+
+  const openCartModal = () => {
+    setIsCartModalOpen(true);
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeCartModal = () => {
+    setIsCartModalOpen(false);
+    document.body.classList.remove('overflow-hidden');
+  };
+
   return (
     <ProductsContext.Provider
       value={{
@@ -91,6 +145,13 @@ function ProductsProvider({ children }: { children: ReactNode }) {
         getProductsByCategory,
         loadingData,
         getProductsBySearch,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateCartItemQuantity,
+        isCartModalOpen,
+        openCartModal,
+        closeCartModal,
       }}
     >
       {children}

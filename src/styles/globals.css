@@ -6,6 +6,15 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
+
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+  body::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+    width: 2px;
+  }
+
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -34,5 +43,13 @@
 
   .divider {
     @apply w-full h-[2px] bg-gray-300 relative after:absolute after:content-[''] after:w-1/4 after:h-[2px] after:bg-black;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+    width: 2px;
   }
 }

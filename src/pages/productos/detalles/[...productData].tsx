@@ -9,6 +9,7 @@ import { CartIcon, HeartIcon, StarIcon } from '@/components/shared/Icons';
 import ProductCard from '@/components/pages/productos/ProductCard';
 import Loader from '@/components/shared/Loader';
 import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
+import { useProductsContext } from '@/context/ProductsContext';
 
 export default function ProductDetail() {
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -17,6 +18,8 @@ export default function ProductDetail() {
   const [infoToShow, setInfoToShow] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { openCartModal, addToCart } = useProductsContext();
 
   const router = useRouter();
 
@@ -81,6 +84,11 @@ export default function ProductDetail() {
   };
   const pageTitle = product.nombre;
 
+  const handleAddToCart = () => {
+    addToCart({ productId: product.id, quantity });
+    openCartModal();
+  };
+
   return (
     <PageLayout
       title={pageTitle}
@@ -121,7 +129,7 @@ export default function ProductDetail() {
               (3 reviews)
             </Link>
           </div>
-          <p className="text-2xl">$ {product.precio}</p>
+          <p className="text-2xl">$ {product.precio.toLocaleString('es-AR')}</p>
           <p>{product.descripcion}</p>
           <div className="flex gap-6 items-center">
             <div
@@ -147,7 +155,10 @@ export default function ProductDetail() {
                 +
               </span>
             </div>
-            <button className="button-primary bg-secondary text-white flex items-center gap-2">
+            <button
+              className="button-primary bg-secondary text-white flex items-center gap-2"
+              onClick={handleAddToCart}
+            >
               <span>
                 <CartIcon color="white" />
               </span>

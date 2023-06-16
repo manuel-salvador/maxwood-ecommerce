@@ -16,6 +16,9 @@ module.exports = {
       gridTemplateColumns: {
         'list-cards': 'repeat(auto-fit, minmax(250px, 1fr))',
       },
+      screens: {
+        xs: '400px',
+      },
     },
   },
   plugins: [],

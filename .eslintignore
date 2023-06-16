@@ -5,3 +5,4 @@ coverage/
 .vscode/
 build/
 next.config.js
+tailwind.config.js

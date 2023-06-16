@@ -38,4 +38,22 @@ export interface IProductContextType {
   getProductsByCategory: (category: string) => void;
   loadingData: boolean;
   getProductsBySearch: (query: string) => void;
+  cartItems: ICartItem[];
+  addToCart: ({ productId, quantity }: { productId: number; quantity?: number }) => void;
+  removeFromCart: (productId: number) => void;
+  updateCartItemQuantity: ({
+    productId,
+    quantity,
+  }: {
+    productId: number;
+    quantity: number;
+  }) => void;
+  isCartModalOpen: boolean;
+  openCartModal: () => void;
+  closeCartModal: () => void;
+}
+
+export interface ICartItem {
+  product: IProduct;
+  quantity: number;
 }
