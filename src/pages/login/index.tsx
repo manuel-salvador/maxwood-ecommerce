@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 
 import PageLayout from '@/layouts/PageLayout';
 import { AtIcon, CheckIcon, ErrorIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
@@ -27,8 +28,20 @@ export default function LoginPage() {
       remember: false,
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const result = await signIn('credentials', {
+        email: values.email,
+        password: values.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        // Maneja el error de inicio de sesión
+        console.log(result.error);
+      } else {
+        // Inicio de sesión exitoso
+        console.log(result);
+      }
     },
   });
 
