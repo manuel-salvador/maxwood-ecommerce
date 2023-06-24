@@ -1,5 +1,7 @@
 import type { NextApiHandler } from 'next';
 
+import { IUser } from '@/types';
+
 const credentialsAuth: NextApiHandler = (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).end();
@@ -7,7 +9,7 @@ const credentialsAuth: NextApiHandler = (req, res) => {
   }
 
   if (req.body.password === process.env.AUTH_WEB_SECRET && req.body.email === 'test@example.com') {
-    const user: User = {
+    const user: IUser = {
       name: 'Manuel',
       email: 'test@example.com',
       rol: 'superAdmin',

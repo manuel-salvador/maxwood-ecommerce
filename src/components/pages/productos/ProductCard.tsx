@@ -1,6 +1,7 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 import { CartIcon, HeartIcon, PlusIcon } from '@/components/shared/Icons';
 import { IProduct } from '@/types';
@@ -12,11 +13,20 @@ type Props = {
 };
 
 export default function ProductCard({ product, showAddCartButton = true }: Props) {
-  const [isFavourite, setIsFavourite] = useState<boolean>(false);
-  const { addToCart, openCartModal } = useProductsContext();
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const { addToCart, openCartModal, favoriteProducts, handleFavorite } = useProductsContext();
 
-  const handleFavourite = () => {
-    setIsFavourite(!isFavourite);
+  const { status } = useSession();
+
+  useEffect(() => {
+    if (status !== 'authenticated') return;
+    const checkFavorite = favoriteProducts.find((p) => p.id === product.id);
+    setIsFavorite(Boolean(checkFavorite));
+  }, [favoriteProducts]);
+
+  const handleOnClickHeart = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    handleFavorite(product.id);
   };
 
   const handleAddToCart = (e: MouseEvent<HTMLButtonElement>) => {
@@ -34,12 +44,12 @@ export default function ProductCard({ product, showAddCartButton = true }: Props
         className="w-full h-full max-w-sm mx-auto relative border-2 rounded-lg flex flex-col overflow-hidden"
       >
         <div
-          className={`absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer ${
-            isFavourite ? 'bg-red-500' : 'bg-white'
+          className={`z-10 absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer ${
+            isFavorite ? 'bg-red-500' : 'bg-white'
           }`}
-          onClick={handleFavourite}
+          onClick={handleOnClickHeart}
         >
-          <HeartIcon color={isFavourite ? 'white' : 'black'} />
+          <HeartIcon color={isFavorite ? 'white' : 'black'} />
         </div>
         <figure className="bg-gray-700 w-full aspect-square relative">
           <Image

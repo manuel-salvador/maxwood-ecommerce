@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 import PageLayout from '@/layouts/PageLayout';
 import { IProduct } from '@/types';
@@ -18,10 +19,24 @@ export default function ProductDetail() {
   const [infoToShow, setInfoToShow] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const { openCartModal, addToCart } = useProductsContext();
+  const { openCartModal, addToCart, favoriteProducts, handleFavorite } = useProductsContext();
 
   const router = useRouter();
+
+  const { status } = useSession();
+
+  useEffect(() => {
+    if (status !== 'authenticated') return;
+    const checkFavorite = favoriteProducts.find((p) => p.id === product?.id);
+    setIsFavorite(Boolean(checkFavorite));
+  }, [favoriteProducts]);
+
+  const handleOnClickHeart = () => {
+    if (!product || status !== 'authenticated') return;
+    handleFavorite(product.id);
+  };
 
   useEffect(() => {
     const productData = router.query.productData;
@@ -164,9 +179,14 @@ export default function ProductDetail() {
               </span>
               <span>Añadir al carrito</span>
             </button>
-            <span>
-              <HeartIcon />
-            </span>
+            <div
+              onClick={handleOnClickHeart}
+              className={`w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer ${
+                isFavorite ? 'bg-red-500' : 'bg-white'
+              }`}
+            >
+              <HeartIcon color={isFavorite ? 'white' : 'black'} />
+            </div>
           </div>
           <div id="properties">
             <div className="flex gap-2">

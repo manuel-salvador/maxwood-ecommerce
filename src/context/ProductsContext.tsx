@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 import { ICartItem, IProduct, IProductContextType } from '@/types';
 import useLocalStorage from '@/hooks/useLocalStorage';
@@ -17,16 +18,24 @@ const ProductsContext = createContext<IProductContextType>({
   isCartModalOpen: false,
   openCartModal: () => ({}),
   closeCartModal: () => ({}),
+  favoriteProducts: [],
+  handleFavorite: () => ({}),
 });
 
 function ProductsProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useLocalStorage<ICartItem[]>('CART_ITEMS_V1', []);
+  const [favoriteProducts, setFavoriteProducts] = useLocalStorage<IProduct[]>(
+    'FAVORITE_PRODUCTS_V1',
+    [],
+  );
 
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [loadingData, setLoadingData] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+
+  const { status } = useSession();
 
   // Obtener todos los productos
   useEffect(() => {
@@ -136,22 +145,44 @@ function ProductsProvider({ children }: { children: ReactNode }) {
     document.body.classList.remove('overflow-hidden');
   };
 
+  const handleFavorite = (productId: number) => {
+    if (status !== 'authenticated') return;
+
+    const isAlreadyFavorite = favoriteProducts.find((product) => product.id === productId);
+
+    if (isAlreadyFavorite) {
+      const newFavorites = favoriteProducts.filter((product) => productId !== product.id);
+      setFavoriteProducts(newFavorites);
+    } else {
+      const newFavoriteProduct = allProducts.find((product) => product.id === productId);
+      if (!newFavoriteProduct) return;
+      setFavoriteProducts([...favoriteProducts, newFavoriteProduct]);
+    }
+  };
+
   return (
     <ProductsContext.Provider
       value={{
         allProducts,
         products,
         categories,
+
         getProductsByCategory,
-        loadingData,
         getProductsBySearch,
+
+        loadingData,
+
         cartItems,
         addToCart,
         removeFromCart,
         updateCartItemQuantity,
+
         isCartModalOpen,
         openCartModal,
         closeCartModal,
+
+        favoriteProducts,
+        handleFavorite,
       }}
     >
       {children}

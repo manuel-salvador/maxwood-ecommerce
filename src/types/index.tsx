@@ -51,9 +51,17 @@ export interface IProductContextType {
   isCartModalOpen: boolean;
   openCartModal: () => void;
   closeCartModal: () => void;
+  favoriteProducts: IProduct[];
+  handleFavorite: (productId: number) => void;
 }
 
 export interface ICartItem {
   product: IProduct;
   quantity: number;
 }
+
+export type IUser = {
+  name: string;
+  email: string;
+  rol: string;
+};
