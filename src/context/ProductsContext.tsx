@@ -1,8 +1,10 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { toast } from 'sonner';
 
 import { ICartItem, IProduct, IProductContextType } from '@/types';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import CustomToast from '@/components/shared/CustomToast';
 
 const ProductsContext = createContext<IProductContextType>({
   allProducts: [],
@@ -146,7 +148,16 @@ function ProductsProvider({ children }: { children: ReactNode }) {
   };
 
   const handleFavorite = (productId: number) => {
-    if (status !== 'authenticated') return;
+    if (status !== 'authenticated') {
+      toast.custom((t) => (
+        <CustomToast
+          msg="Para agregar favoritos, ingresá a tu cuenta"
+          linkBtn={{ href: '/login', label: 'Ingresá', extraFunction: () => toast.dismiss(t) }}
+          closeBtn={<button onClick={() => toast.dismiss(t)}>Cerrar</button>}
+        />
+      ));
+      return;
+    }
 
     const isAlreadyFavorite = favoriteProducts.find((product) => product.id === productId);
 

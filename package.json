@@ -21,6 +21,7 @@
     "rc-slider": "^10.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sonner": "^0.5.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
     "yup": "^1.1.1"
