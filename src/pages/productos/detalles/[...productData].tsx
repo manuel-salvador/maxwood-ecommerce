@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +8,6 @@ import PageLayout from '@/layouts/PageLayout';
 import { IProduct } from '@/types';
 import { CartIcon, HeartIcon, StarIcon } from '@/components/shared/Icons';
 import ProductCard from '@/components/pages/productos/ProductCard';
-import Loader from '@/components/shared/Loader';
 import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
 import { useProductsContext } from '@/context/ProductsContext';
 import LoadingPage from '@/components/pages/LoadingPage';
@@ -133,9 +132,13 @@ export default function ProductDetail() {
               <StarIcon size={18} fill />
               <StarIcon size={18} />
             </div>
-            <Link href="#" className="text-sky-600 font-semibold">
+            <a
+              href="#moreInfo"
+              onClick={() => setInfoToShow(2)}
+              className="text-sky-600 font-semibold"
+            >
               (3 reviews)
-            </Link>
+            </a>
           </div>
           <p className="text-2xl">$ {product.precio.toLocaleString('es-AR')}</p>
           <p>{product.descripcion}</p>
@@ -197,8 +200,8 @@ export default function ProductDetail() {
           </div>
         </div>
       </section>
-      <section id="moreInfo">
-        <ul className="flex gap-8 mt-10 mb-2 py-2 border-b-2 border-gray-200">
+      <section id="moreInfo" className="pt-16">
+        <ul className="flex gap-8 mb-2 py-2 border-b-2 border-gray-200">
           {['Descripcion', 'Especificaciones', 'Reviews'].map((item, idx) => (
             <li
               key={item + idx}
