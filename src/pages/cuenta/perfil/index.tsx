@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useSession } from 'next-auth/react';
 
 import { EditIcon } from '@/components/shared/Icons';
 import AccountLayout from '@/layouts/AccountLayout';
+import LoadingPage from '@/components/pages/LoadingPage';
 
 const isRequired = 'Campo requerido';
 
@@ -22,12 +24,14 @@ const validationSchema = Yup.object({
 export default function PerfilPage() {
   const [isEditable, setIsEditable] = useState(false);
 
+  const { data, status } = useSession();
+
   const { values, handleChange, handleSubmit, errors, resetForm } = useFormik({
     initialValues: {
-      name: 'John Doe',
-      email: 'test@example.com',
-      phone: '+54 9 11 8765-4321',
-      address: 'Av. Siempre Viva 123',
+      name: data?.user?.name || '',
+      email: data?.user?.email || '',
+      phone: data?.user?.phone || '',
+      address: data?.user?.address || '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -39,6 +43,21 @@ export default function PerfilPage() {
     setIsEditable(false);
     resetForm();
   };
+
+  useEffect(() => {
+    if (data) {
+      resetForm({
+        values: {
+          name: data.user?.name || '',
+          email: data.user?.email || '',
+          phone: data.user?.phone || '',
+          address: data.user?.address || '',
+        },
+      });
+    }
+  }, [data]);
+
+  if (status === 'loading') return <LoadingPage />;
 
   return (
     <AccountLayout title="Perfil">
@@ -60,6 +79,7 @@ export default function PerfilPage() {
               className="input"
               disabled={!isEditable}
               onChange={handleChange}
+              placeholder="ej. Jhon Doe"
             />
             <span
               className={`text-red-600 absolute bottom-0 transition-opacity ${
@@ -79,6 +99,7 @@ export default function PerfilPage() {
               className="input"
               disabled={!isEditable}
               onChange={handleChange}
+              placeholder="ej. example@example.com"
             />
             <span
               className={`text-red-600 absolute bottom-0 transition-opacity ${
@@ -98,6 +119,7 @@ export default function PerfilPage() {
               className="input"
               disabled={!isEditable}
               onChange={handleChange}
+              placeholder="ej. 11 2345-6789"
             />
             <span
               className={`text-red-600 absolute bottom-0 transition-opacity ${
@@ -117,6 +139,7 @@ export default function PerfilPage() {
               className="input"
               disabled={!isEditable}
               onChange={handleChange}
+              placeholder="ej. Calle 123, Ciudad"
             />
             <span
               className={`text-red-600 absolute bottom-0 transition-opacity ${

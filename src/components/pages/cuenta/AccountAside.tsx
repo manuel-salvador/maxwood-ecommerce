@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 import { UserIcon, BagIcon, HeartIcon, ShutdownIcon } from '@/components/shared/Icons';
 
@@ -35,7 +36,7 @@ export default function AccountAside() {
         <span>
           <ShutdownIcon />
         </span>
-        <span>Cerrar sesión</span>
+        <span onClick={() => signOut()}>Cerrar sesión</span>
       </div>
     </aside>
   );

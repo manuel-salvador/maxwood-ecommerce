@@ -11,6 +11,7 @@ import ProductCard from '@/components/pages/productos/ProductCard';
 import Loader from '@/components/shared/Loader';
 import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
 import { useProductsContext } from '@/context/ProductsContext';
+import LoadingPage from '@/components/pages/LoadingPage';
 
 export default function ProductDetail() {
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -63,15 +64,7 @@ export default function ProductDetail() {
     }
   }, [router]);
 
-  if (isLoading) {
-    return (
-      <PageLayout title="Cargando">
-        <div>
-          <Loader />
-        </div>
-      </PageLayout>
-    );
-  }
+  if (isLoading) return <LoadingPage />;
 
   if (!product) {
     return (

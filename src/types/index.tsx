@@ -63,5 +63,7 @@ export interface ICartItem {
 export type IUser = {
   name: string;
   email: string;
-  rol: string;
+  role: string;
+  phone?: string;
+  address?: string;
 };

@@ -10,9 +10,9 @@ const credentialsAuth: NextApiHandler = (req, res) => {
 
   if (req.body.password === process.env.AUTH_WEB_SECRET && req.body.email === 'test@example.com') {
     const user: IUser = {
-      name: 'Manuel',
+      name: 'Manuel Salvador',
       email: 'test@example.com',
-      rol: 'superAdmin',
+      role: 'superAdmin',
     };
 
     return res.status(200).json(user);
