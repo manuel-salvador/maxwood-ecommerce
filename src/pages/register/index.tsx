@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
 import {
@@ -30,6 +32,15 @@ const validationSchema = Yup.object({
 export default function RegisterPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/cuenta');
+    }
+  }, [status]);
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
 import { BurgerMenuIcon, CartIcon, CloseIcon, UserIcon } from '@/components/shared/Icons';
 import { useProductsContext } from '@/context/ProductsContext';
@@ -9,6 +10,7 @@ import CartModal from './CartModal';
 
 export default function Header() {
   const { openCartModal, cartItems } = useProductsContext();
+  const { status } = useSession();
 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -19,6 +21,10 @@ export default function Header() {
     } else {
       document.body.classList.remove('overflow-hidden');
     }
+  };
+
+  const handleSignOut = () => {
+    signOut();
   };
 
   return (
@@ -78,12 +84,29 @@ export default function Header() {
             <Link href="/productos/categoria/exterior">Exterior</Link>
           </li>
           <div className="w-1/2 h-[2px] bg-gray-500" />
-          <li onClick={handleMenu}>
-            <Link href="/login">Iniciar sesión</Link>
-          </li>
-          <li onClick={handleMenu}>
-            <Link href="/register">Registrarme</Link>
-          </li>
+          {status === 'authenticated' ? (
+            <>
+              <li onClick={handleMenu}>
+                <Link href="/cuenta" className="link-animation">
+                  Mi cuenta
+                </Link>
+              </li>
+              <li onClick={handleMenu}>
+                <button type="button" onClick={handleSignOut} className="link-animation">
+                  Cerrar sesión
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li onClick={handleMenu}>
+                <Link href="/login">Iniciar sesión</Link>
+              </li>
+              <li onClick={handleMenu}>
+                <Link href="/register">Registrarme</Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
 
@@ -99,14 +122,25 @@ export default function Header() {
         </span>
         <span className="hidden md:block relative group">
           <UserIcon />
-          <div className="opacity-0 top-full absolute -right-36 bg-gray-50 rounded-md shadow-md py-2 px-4 w-32 items-end gap-1 flex flex-col group-hover:-right-4 group-hover:opacity-100 transition-all duration-300">
-            <Link href="/login" className="link-animation">
-              Iniciar sesión
-            </Link>
-            <Link href="/register" className="link-animation">
-              Registrarme
-            </Link>
-          </div>
+          {status === 'authenticated' ? (
+            <div className="opacity-0 top-full absolute -right-36 bg-gray-50 rounded-md shadow-md py-2 px-4 w-32 items-end gap-1 flex flex-col group-hover:-right-4 group-hover:opacity-100 transition-all duration-300">
+              <Link href="/cuenta" className="link-animation">
+                Mi cuenta
+              </Link>
+              <button type="button" onClick={handleSignOut} className="link-animation">
+                Cerrar sesión
+              </button>
+            </div>
+          ) : (
+            <div className="opacity-0 top-full absolute -right-36 bg-gray-50 rounded-md shadow-md py-2 px-4 w-32 items-end gap-1 flex flex-col group-hover:-right-4 group-hover:opacity-100 transition-all duration-300">
+              <Link href="/login" className="link-animation">
+                Iniciar sesión
+              </Link>
+              <Link href="/register" className="link-animation">
+                Registrarme
+              </Link>
+            </div>
+          )}
         </span>
         <span className="block md:hidden" onClick={handleMenu}>
           <BurgerMenuIcon />

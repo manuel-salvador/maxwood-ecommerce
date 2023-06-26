@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
 import { AtIcon, CheckIcon, ErrorIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
@@ -20,6 +21,16 @@ const validationSchema = Yup.object({
 export default function LoginPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [longinError, setLonginError] = useState(false);
+
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/cuenta');
+    }
+  }, [status]);
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
@@ -29,6 +40,7 @@ export default function LoginPage() {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
+      setLonginError(false);
       const result = await signIn('credentials', {
         email: values.email,
         password: values.password,
@@ -36,10 +48,8 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
-        // Maneja el error de inicio de sesión
-        console.log(result.error);
+        setLonginError(true);
       } else {
-        // Inicio de sesión exitoso
         console.log(result);
       }
     },
@@ -52,6 +62,11 @@ export default function LoginPage() {
         className="w-full max-w-sm mx-auto mt-10 px-10 flex flex-col items-center"
       >
         <h2 className="mb-6 font-bold text-2xl md:text-3xl">Iniciar sesión</h2>
+        {longinError && (
+          <div className="bg-red-100 border border-red-600 text-red-600 p-1 mb-4 w-full text-center">
+            Email o contraseña incorrectos
+          </div>
+        )}
         <div className="pb-8 w-full flex justify-center relative">
           <input
             type="text"
