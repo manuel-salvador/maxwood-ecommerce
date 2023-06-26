@@ -9,8 +9,6 @@ export default function CuentaPage() {
 
   const name = data ? data.user?.name?.split(' ')[0] : '';
 
-  console.log('asd');
-
   return (
     <PageLayout title="Cuenta" className="py-8 flex flex-col justify-center items-center gap-2">
       <h2 className="text-center mb-4 font-bold text-2xl">¡Hola {name}!</h2>
