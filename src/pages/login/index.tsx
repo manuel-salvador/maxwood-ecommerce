@@ -48,6 +48,7 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
+        console.error({ authError: result.error });
         setLonginError(true);
       } else {
         console.log(result);
