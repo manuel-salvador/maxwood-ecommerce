@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default function Loader() {
+type Props = {
+  size?: number;
+};
+
+export default function Loader({ size = 32 }: Props) {
   return (
-    <div role="status" className="w-screen h-screen flex justify-center items-center">
+    <div role="status" className="flex justify-center items-center">
       <svg
         aria-hidden="true"
-        className="inline w-8 h-8 mr-2 text-primary animate-spin fill-secondary"
+        width={size}
+        height={size}
+        className="inline mr-2 text-primary animate-spin fill-secondary"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -6,20 +6,13 @@ import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
-import { AtIcon, CheckIcon, ErrorIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
+import { AtIcon, CheckIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
+import Loader from '@/components/shared/Loader';
 
 const isRequired = 'Campo requerido';
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .email('Email no válido')
-    .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/, 'Email no válido')
-    .required(isRequired),
-  password: Yup.string().required(isRequired).min(8, 'Minimo 8 carácteres'),
-  remember: Yup.boolean(),
-});
 
 export default function LoginPage() {
-  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [submittingForm, setSubmittingForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [longinError, setLonginError] = useState(false);
 
@@ -32,13 +25,12 @@ export default function LoginPage() {
     }
   }, [status]);
 
-  const { values, handleChange, handleSubmit, errors } = useFormik({
+  const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
       email: '',
       password: '',
       remember: false,
     },
-    validationSchema: validationSchema,
     onSubmit: async (values) => {
       setLonginError(false);
       const result = await signIn('credentials', {
@@ -48,13 +40,18 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
-        console.error({ authError: result.error });
         setLonginError(true);
+        setSubmittingForm(false);
       } else {
         console.log(result);
       }
     },
   });
+
+  const handleLogin = () => {
+    handleSubmit();
+    setSubmittingForm(true);
+  };
 
   return (
     <PageLayout title="Iniciar sesión" footer={false}>
@@ -76,19 +73,11 @@ export default function LoginPage() {
             onChange={handleChange}
             value={values.email}
             placeholder="Email"
-            className={`input pr-8 ${submitted && errors.email ? 'border-red-600' : null}`}
+            className="input pr-8"
           />
           <span className="absolute right-2 top-2">
             <AtIcon size={18} />
           </span>
-          <div
-            className={`input-error-message overflow-hidden ${
-              submitted && errors.email ? 'opacity-100 h-auto' : 'opacity-0 h-0'
-            }`}
-          >
-            <ErrorIcon size={18} />
-            <span>{errors.email}</span>
-          </div>
         </div>
         <div className="pb-8 w-full flex justify-center relative">
           <input
@@ -98,7 +87,7 @@ export default function LoginPage() {
             onChange={handleChange}
             value={values.password}
             placeholder="Contraseña"
-            className={`input pr-8 ${submitted && errors.password ? 'border-red-600' : null}`}
+            className="input pr-8"
           />
           <span
             className="absolute right-1 top-1 cursor-pointer hover:bg-gray-200 rounded-full p-1"
@@ -106,14 +95,6 @@ export default function LoginPage() {
           >
             {showPassword ? <LockOpenIcon size={21} /> : <LockIcon size={20} />}
           </span>
-          <div
-            className={`input-error-message overflow-hidden ${
-              submitted && errors.password ? 'opacity-100 h-auto' : 'opacity-0 h-0'
-            }`}
-          >
-            <ErrorIcon size={18} />
-            <span>{errors.password}</span>
-          </div>
         </div>
 
         <label htmlFor="remember" className="flex self-start items-center cursor-pointer">
@@ -135,10 +116,14 @@ export default function LoginPage() {
         </label>
         <button
           type="submit"
-          onClick={() => setSubmitted(true)}
-          className="mt-6 button-primary bg-primary text-white rounded-md py-1 text-lg"
+          onClick={handleLogin}
+          className={`mt-6 button-primary text-white rounded-md py-1 w-36 h-10 block text-lg select-none ${
+            submittingForm || !values.email || !values.password
+              ? 'pointer-events-none bg-gray-500'
+              : 'bg-primary'
+          }`}
         >
-          Iniciar sesión
+          {submittingForm ? <Loader size={24} /> : 'Iniciar sesión'}
         </button>
       </form>
       <div className="flex flex-col items-center gap-4 mt-6">
