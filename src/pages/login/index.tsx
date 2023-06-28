@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import type { GetServerSidePropsContext } from 'next';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import { signIn, useSession } from 'next-auth/react';
+import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
@@ -13,14 +15,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [longinError, setLonginError] = useState(false);
 
-  const { status } = useSession();
   const router = useRouter();
-
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/cuenta');
-    }
-  }, [status]);
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -40,7 +35,7 @@ export default function LoginPage() {
         setLonginError(true);
         setSubmittingForm(false);
       } else {
-        console.log(result);
+        router.back();
       }
     },
   });
@@ -136,4 +131,22 @@ export default function LoginPage() {
       </div>
     </PageLayout>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  if (session && session.user) {
+    // Si el usuario está autenticado, redirige a la página de cuenta
+    return {
+      redirect: {
+        destination: '/cuenta',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {}, // Si el usuario no está autenticado, muestra la página de inicio de sesión normalmente
+  };
 }

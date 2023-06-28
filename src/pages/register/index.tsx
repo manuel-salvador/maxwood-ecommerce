@@ -1,9 +1,10 @@
+import type { GetServerSidePropsContext } from 'next';
+
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { getSession } from 'next-auth/react';
 
 import PageLayout from '@/layouts/PageLayout';
 import {
@@ -43,15 +44,6 @@ export default function RegisterPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
-  const { status } = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/cuenta');
-    }
-  }, [status]);
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
@@ -239,4 +231,21 @@ export default function RegisterPage() {
       </div>
     </PageLayout>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  if (session && session.user) {
+    return {
+      redirect: {
+        destination: '/cuenta',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
