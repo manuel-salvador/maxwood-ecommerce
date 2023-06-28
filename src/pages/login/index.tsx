@@ -1,21 +1,32 @@
-import type { GetServerSidePropsContext } from 'next';
-
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import { getSession, signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
 import { AtIcon, CheckIcon, CloseEyeIcon, OpenEyeIcon } from '@/components/shared/Icons';
 import Loader from '@/components/shared/Loader';
+import LoadingPage from '@/components/pages/LoadingPage';
 
 export default function LoginPage() {
   const [submittingForm, setSubmittingForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [longinError, setLonginError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const { status } = useSession();
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'authenticated' && !submittingForm) {
+      router.push('/cuenta');
+    }
+    if (status === 'unauthenticated') {
+      setLoading(false);
+    }
+  }, [status]);
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -34,16 +45,20 @@ export default function LoginPage() {
       if (result?.error) {
         setLonginError(true);
         setSubmittingForm(false);
-      } else {
+      }
+      if (result?.ok && submittingForm) {
         router.back();
       }
     },
   });
 
   const handleLogin = () => {
-    handleSubmit();
-    setSubmittingForm(true);
+    if (!submittingForm) {
+      setSubmittingForm(true);
+    }
   };
+
+  if (loading) return <LoadingPage />;
 
   return (
     <PageLayout title="Iniciar sesión" footer={false}>
@@ -59,7 +74,7 @@ export default function LoginPage() {
         )}
         <div className="pb-8 w-full flex justify-center relative">
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             onChange={handleChange}
@@ -131,22 +146,4 @@ export default function LoginPage() {
       </div>
     </PageLayout>
   );
-}
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getSession(context);
-
-  if (session && session.user) {
-    // Si el usuario está autenticado, redirige a la página de cuenta
-    return {
-      redirect: {
-        destination: '/cuenta',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {}, // Si el usuario no está autenticado, muestra la página de inicio de sesión normalmente
-  };
 }
