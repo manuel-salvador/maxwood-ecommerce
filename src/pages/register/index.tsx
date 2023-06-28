@@ -17,12 +17,22 @@ import {
 
 const isRequired = 'Campo requerido';
 const validationSchema = Yup.object({
-  fullName: Yup.string().min(4, 'Minimo 4 carácteres').required(isRequired),
+  name: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo letras A-Z')
+    .min(3, 'Minimo 3 carácteres')
+    .required(isRequired),
+  lastName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo letras A-Z')
+    .min(3, 'Minimo 3 carácteres')
+    .required(isRequired),
   email: Yup.string()
     .email('Email no válido')
     .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/, 'Email no válido')
     .required(isRequired),
-  password: Yup.string().required(isRequired).min(8, 'Minimo 8 carácteres'),
+  password: Yup.string()
+    .required(isRequired)
+    .min(8, 'Minimo 8 caracteres')
+    .max(20, 'Máximo 20 caracteres'),
   repeatPassword: Yup.string()
     .required(isRequired)
     .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden'),
@@ -45,7 +55,8 @@ export default function RegisterPage() {
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
-      fullName: '',
+      name: '',
+      lastName: '',
       email: '',
       password: '',
       repeatPassword: '',
@@ -67,23 +78,45 @@ export default function RegisterPage() {
         <div className="pb-8 w-full flex justify-center relative">
           <input
             type="text"
-            id="fullName"
-            name="fullName"
+            id="name"
+            name="name"
             onChange={handleChange}
-            value={values.fullName}
-            placeholder="Nombre completo"
-            className={`input pr-8 ${submitted && errors.fullName ? 'border-red-600' : null}`}
+            value={values.name}
+            placeholder="Nombre"
+            className={`input pr-8 ${submitted && errors.name ? 'border-red-600' : null}`}
           />
           <span className="absolute right-2 top-2">
             <UserIcon size={18} />
           </span>
           <div
             className={`input-error-message overflow-hidden ${
-              submitted && errors.fullName ? 'opacity-100 h-auto' : 'opacity-0 h-0'
+              submitted && errors.name ? 'opacity-100 h-auto' : 'opacity-0 h-0'
             }`}
           >
             <ErrorIcon size={18} />
-            <span>{errors.fullName}</span>
+            <span>{errors.name}</span>
+          </div>
+        </div>
+        <div className="pb-8 w-full flex justify-center relative">
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            onChange={handleChange}
+            value={values.lastName}
+            placeholder="Apellido"
+            className={`input pr-8 ${submitted && errors.lastName ? 'border-red-600' : null}`}
+          />
+          <span className="absolute right-2 top-2">
+            <UserIcon size={18} />
+          </span>
+          <div
+            className={`input-error-message overflow-hidden ${
+              submitted && errors.lastName ? 'opacity-100 h-auto' : 'opacity-0 h-0'
+            }`}
+          >
+            <ErrorIcon size={18} />
+            <span>{errors.lastName}</span>
           </div>
         </div>
         <div className="pb-8 w-full flex justify-center relative">
