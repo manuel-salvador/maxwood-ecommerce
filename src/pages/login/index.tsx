@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import PageLayout from '@/layouts/PageLayout';
-import { AtIcon, CheckIcon, LockIcon, LockOpenIcon } from '@/components/shared/Icons';
+import { AtIcon, CheckIcon, CloseEyeIcon, OpenEyeIcon } from '@/components/shared/Icons';
 import Loader from '@/components/shared/Loader';
-
-const isRequired = 'Campo requerido';
 
 export default function LoginPage() {
   const [submittingForm, setSubmittingForm] = useState(false);
@@ -93,7 +90,7 @@ export default function LoginPage() {
             className="absolute right-1 top-1 cursor-pointer hover:bg-gray-200 rounded-full p-1"
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? <LockOpenIcon size={21} /> : <LockIcon size={20} />}
+            {showPassword ? <OpenEyeIcon size={21} /> : <CloseEyeIcon size={20} />}
           </span>
         </div>
 

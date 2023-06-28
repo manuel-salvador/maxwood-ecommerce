@@ -9,9 +9,9 @@ import PageLayout from '@/layouts/PageLayout';
 import {
   AtIcon,
   CheckIcon,
+  CloseEyeIcon,
   ErrorIcon,
-  LockIcon,
-  LockOpenIcon,
+  OpenEyeIcon,
   UserIcon,
 } from '@/components/shared/Icons';
 
@@ -32,6 +32,7 @@ const validationSchema = Yup.object({
 export default function RegisterPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
   const { status } = useSession();
   const router = useRouter();
@@ -109,7 +110,7 @@ export default function RegisterPage() {
         </div>
         <div className="pb-8 w-full flex justify-center relative">
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
             name="password"
             onChange={handleChange}
@@ -121,7 +122,7 @@ export default function RegisterPage() {
             className="absolute right-1 top-1 cursor-pointer hover:bg-gray-200 rounded-full p-1"
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? <LockOpenIcon size={21} /> : <LockIcon size={20} />}
+            {showPassword ? <OpenEyeIcon size={21} /> : <CloseEyeIcon size={20} />}
           </span>
           <div
             className={`input-error-message overflow-hidden ${
@@ -134,7 +135,7 @@ export default function RegisterPage() {
         </div>
         <div className="pb-8 w-full flex justify-center relative">
           <input
-            type="password"
+            type={showRepeatPassword ? 'text' : 'password'}
             id="repeatPassword"
             name="repeatPassword"
             onChange={handleChange}
@@ -142,8 +143,11 @@ export default function RegisterPage() {
             placeholder="Repetir contraseña"
             className={`input pr-8 ${submitted && errors.repeatPassword ? 'border-red-600' : null}`}
           />
-          <span className="absolute right-2 top-2">
-            <LockIcon size={20} />
+          <span
+            className="absolute right-1 top-1 cursor-pointer hover:bg-gray-200 rounded-full p-1"
+            onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+          >
+            {showRepeatPassword ? <OpenEyeIcon size={21} /> : <CloseEyeIcon size={20} />}
           </span>
           <div
             className={`input-error-message overflow-hidden ${
