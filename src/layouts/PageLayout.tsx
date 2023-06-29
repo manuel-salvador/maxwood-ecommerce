@@ -12,7 +12,8 @@ type PageProps = {
 };
 
 export default function PageLayout({ title, children, className, footer = true }: PageProps) {
-  const pageTitle = `Preview | MaxWood | ${title}`;
+  const isPreviewEnv = process.env.NODE_ENV;
+  const pageTitle = `${isPreviewEnv}MaxWood | ${title}`;
   return (
     <>
       <Head>
