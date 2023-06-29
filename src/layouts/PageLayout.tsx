@@ -12,7 +12,7 @@ type PageProps = {
 };
 
 export default function PageLayout({ title, children, className, footer = true }: PageProps) {
-  const pageTitle = `MaxWood | ${title}`;
+  const pageTitle = `Preview MaxWood | ${title}`;
   return (
     <>
       <Head>
