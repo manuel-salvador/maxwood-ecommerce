@@ -34,7 +34,7 @@ export default function Header() {
       <div className="md:flex-1">
         <Link href="/" className="block w-fit">
           {isPreviewEnv ? (
-            <h1 className="font-bold text-xl">MaxWood Prev.</h1>
+            <h1 className="font-bold text-xl">MaxWood QA</h1>
           ) : (
             <h1 className="font-bold text-2xl">MaxWood</h1>
           )}
