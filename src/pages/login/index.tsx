@@ -1,8 +1,10 @@
 import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import { signIn, useSession } from 'next-auth/react';
+import { getSession, signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { toast } from 'sonner';
+import { GetServerSidePropsContext } from 'next';
 
 import PageLayout from '@/layouts/PageLayout';
 import { AtIcon, CheckIcon, CloseEyeIcon, OpenEyeIcon } from '@/components/shared/Icons';
@@ -20,9 +22,6 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === 'authenticated' && !submittingForm) {
-      router.push('/cuenta');
-    }
     if (status === 'unauthenticated') {
       setLoading(false);
     }
@@ -47,6 +46,7 @@ export default function LoginPage() {
         setSubmittingForm(false);
       }
       if (result?.ok && submittingForm) {
+        toast.success('¡Sesión iniciada correctamente!');
         router.back();
       }
     },
@@ -146,4 +146,21 @@ export default function LoginPage() {
       </div>
     </PageLayout>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  if (session && session.user) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }

@@ -239,7 +239,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   if (session && session.user) {
     return {
       redirect: {
-        destination: '/cuenta',
+        destination: '/',
         permanent: false,
       },
     };

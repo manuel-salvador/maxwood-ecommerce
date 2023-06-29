@@ -5,6 +5,7 @@ import { toast } from 'sonner';
 import { ICartItem, IProduct, IProductContextType } from '@/types';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import CustomToast from '@/components/CustomToast';
+import { WarnIcon } from '@/components/shared/Icons';
 
 const ProductsContext = createContext<IProductContextType>({
   allProducts: [],

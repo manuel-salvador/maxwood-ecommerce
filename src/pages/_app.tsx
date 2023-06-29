@@ -12,7 +12,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
     <SessionProvider session={session}>
       <ProductsProvider>
         <Component {...pageProps} />
-        <Toaster position="top-center" />
+        <Toaster position="top-center" richColors />
       </ProductsProvider>
     </SessionProvider>
   );

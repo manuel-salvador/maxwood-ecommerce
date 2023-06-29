@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 
 type Props = {
-  msg: string;
+  msg: string | ReactNode;
   linkBtn?: {
     label: string;
     href: string;

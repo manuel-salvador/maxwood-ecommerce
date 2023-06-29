@@ -34,7 +34,7 @@ export default function ProductDetail() {
   }, [favoriteProducts]);
 
   const handleOnClickHeart = () => {
-    if (!product || status !== 'authenticated') return;
+    if (!product) return;
     handleFavorite(product.id);
   };
 
