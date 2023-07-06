@@ -7,6 +7,8 @@ import {
   BorderedHeartIcon,
   ShutdownIcon,
   RightArrowIcon,
+  ShieldIcon,
+  QuestionIcon,
 } from '@/components/shared/Icons';
 
 type Props = {
@@ -61,12 +63,33 @@ export default function AccountAside({ closeSubMenu }: Props) {
             </span>
           </Link>
         </li>
+        <li onClick={closeSubMenu}>
+          <Link href="/cuenta/seguridad">
+            <div>
+              <span>
+                <ShieldIcon />
+              </span>
+              <span>Seguridad</span>
+            </div>
+            <span className="block md:hidden">
+              <RightArrowIcon />
+            </span>
+          </Link>
+        </li>
       </ul>
-      <div className="flex items-center gap-2 cursor-pointer">
-        <span>
-          <ShutdownIcon />
-        </span>
-        <span onClick={() => signOut()}>Cerrar sesión</span>
+      <div className="flex flex-col gap-5">
+        <div className="flex items-center gap-2 cursor-pointer">
+          <span>
+            <QuestionIcon />
+          </span>
+          <span onClick={() => signOut()}>Ayuda</span>
+        </div>
+        <div className="flex items-center gap-2 cursor-pointer">
+          <span>
+            <ShutdownIcon />
+          </span>
+          <span onClick={() => signOut()}>Cerrar sesión</span>
+        </div>
       </div>
     </aside>
   );
