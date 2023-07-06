@@ -4,7 +4,7 @@ export default function TermsPage() {
   return (
     <PageLayout
       title="Términos y condiciones"
-      className="p-8 flex flex-col gap-4 [&>div>h2]:text-gray-700 [&>div>h2]:font-bold max-w-screen-md mx-auto "
+      className="p-8 flex flex-col gap-4 [&>div>h2]:text-gray-700 [&>div>h2]:font-bold max-w-screen-md mx-auto"
     >
       <h1 className="text-center font-bold text-2xl mb-4">Términos y Condiciones</h1>
 
