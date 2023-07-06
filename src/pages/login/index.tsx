@@ -14,7 +14,7 @@ import LoadingPage from '@/components/pages/LoadingPage';
 export default function LoginPage() {
   const [submittingForm, setSubmittingForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [longinError, setLonginError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const { status } = useSession();
@@ -34,7 +34,8 @@ export default function LoginPage() {
       remember: false,
     },
     onSubmit: async (values) => {
-      setLonginError(false);
+      setLoginError(false);
+
       const result = await signIn('credentials', {
         email: values.email,
         password: values.password,
@@ -42,9 +43,10 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
-        setLonginError(true);
+        setLoginError(true);
         setSubmittingForm(false);
       }
+
       if (result?.ok && submittingForm) {
         toast.success('¡Sesión iniciada correctamente!');
         router.back();
@@ -67,7 +69,7 @@ export default function LoginPage() {
         className="w-full max-w-sm mx-auto mt-10 px-10 flex flex-col items-center"
       >
         <h2 className="mb-6 font-bold text-2xl md:text-3xl">Iniciar sesión</h2>
-        {longinError && (
+        {loginError && (
           <div className="bg-red-100 border border-red-600 text-red-600 p-1 mb-4 w-full text-center">
             Email o contraseña incorrectos
           </div>

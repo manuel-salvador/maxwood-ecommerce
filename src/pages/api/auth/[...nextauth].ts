@@ -18,6 +18,15 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
           remember: { label: 'Recordarme', type: 'checkbox' },
         },
         async authorize(credentials) {
+          const isValidPassword =
+            credentials?.password &&
+            credentials.password.length >= 8 &&
+            credentials.password.length <= 20;
+
+          if (!isValidPassword) {
+            return null;
+          }
+
           const response = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/login`, {
             method: 'POST',
             body: JSON.stringify(credentials),
@@ -25,7 +34,6 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
           });
 
           const user = await response.json();
-
           if (response.ok && user) {
             return user;
           }
