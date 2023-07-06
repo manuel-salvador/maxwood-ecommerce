@@ -170,8 +170,8 @@ export default function Search() {
           <input
             ref={inputRef}
             type="text"
-            placeholder="¿Qué estas buscando?"
-            className="border border-gray-300 pl-2 pr-8 py-1 rounded-md"
+            placeholder="Buscar"
+            className="border border-gray-300 pl-2 pr-8 py-1 rounded-md w-36"
             value={value}
             onChange={handleOnChange}
             onFocus={() => setShowSuggestions(true)}
@@ -215,8 +215,8 @@ export default function Search() {
       </div>
       {showSuggestions && (
         <ul
-          className={`z-30 py-4 lg:py-0 absolute lg:top-full lg:bg-white lg:shadow-md transition-all duration-500 ${
-            openSearch ? 'left-0 right-0' : '-left-full lg:left-0 lg:right-0 lg:block'
+          className={`z-30 py-4 lg:py-0 absolute lg:top-full lg:bg-white lg:shadow-md transition-all duration-500 lg:w-48 ${
+            openSearch ? 'left-0 right-0' : '-left-full lg:left-auto lg:right-0 lg:block'
           }`}
         >
           {suggestions.map((suggestion, idx) => (

@@ -2,7 +2,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 
-import { BurgerMenuIcon, CartIcon, CloseIcon, UserIcon } from '@/components/shared/Icons';
+import {
+  BorderedHeartIcon,
+  BurgerMenuIcon,
+  CartIcon,
+  CloseIcon,
+  UserIcon,
+} from '@/components/shared/Icons';
 import { useProductsContext } from '@/context/ProductsContext';
 
 import Search from './Search';
@@ -118,6 +124,9 @@ export default function Header() {
 
       <div className="flex items-center gap-4 md:flex-1 md:justify-end">
         <Search />
+        <Link href="/cuenta/favoritos">
+          <BorderedHeartIcon />
+        </Link>
         <span className="cursor-pointer relative" onClick={openCartModal}>
           <CartIcon />
           {cartItems.length > 0 && (
