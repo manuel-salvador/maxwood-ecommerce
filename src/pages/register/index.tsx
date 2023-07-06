@@ -184,29 +184,34 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <label htmlFor="terms" className=" self-start items-center cursor-pointer">
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="terms"
-              name="terms"
-              onChange={handleChange}
-              className="hidden"
-            />
-            <div
-              className={`w-5 h-5 mr-2 cursor-pointer border-2 flex justify-center items-center transition-all rounded-sm ${
-                submitted && errors.terms
-                  ? 'border-red-600'
-                  : values.terms
-                  ? 'border-secondary bg-secondary'
-                  : 'border-black'
-              }`}
-            >
-              {values.terms && <CheckIcon size={14} />}
+        <div className="flex items-center gap-1">
+          <label htmlFor="terms" className=" self-start items-center cursor-pointer">
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                onChange={handleChange}
+                className="hidden"
+              />
+              <div
+                className={`w-5 h-5 mr-2 cursor-pointer border-2 flex justify-center items-center transition-all rounded-sm ${
+                  submitted && errors.terms
+                    ? 'border-red-600'
+                    : values.terms
+                    ? 'border-secondary bg-secondary'
+                    : 'border-black'
+                }`}
+              >
+                {values.terms && <CheckIcon size={14} />}
+              </div>
+              <span className="leading-none">Acepto los</span>
             </div>
-            <span className="leading-none">Acepto los términos y condiciones</span>
-          </div>
-        </label>
+          </label>
+          <Link href="terms" target="_blank" className="leading-none text-secondary cursor-pointer">
+            términos y condiciones
+          </Link>
+        </div>
         {submitted && errors.terms ? (
           <div className="flex items-center gap-2">
             <ErrorIcon size={14} />
