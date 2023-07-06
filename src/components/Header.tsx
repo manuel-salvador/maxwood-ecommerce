@@ -30,7 +30,7 @@ export default function Header() {
   const isPreviewEnv = process.env.NEXT_PUBLIC_PREVIEW_MODE === 'true';
 
   return (
-    <header className="bg-white z-20 h-16 shadow-md px-6 fixed w-full flex items-center justify-between">
+    <header className="bg-white z-40 h-16 shadow-md px-6 fixed w-full flex items-center justify-between">
       <div className="md:flex-1">
         <Link href="/" className="block w-fit">
           {isPreviewEnv ? (

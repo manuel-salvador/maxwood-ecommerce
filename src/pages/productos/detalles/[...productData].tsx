@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 
 import PageLayout from '@/layouts/PageLayout';
 import { IProduct } from '@/types';
-import { CartIcon, HeartIcon, StarIcon } from '@/components/shared/Icons';
+import { CartIcon, BorderedHeartIcon, StarIcon } from '@/components/shared/Icons';
 import ProductCard from '@/components/pages/productos/ProductCard';
 import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
 import { useProductsContext } from '@/context/ProductsContext';
@@ -181,7 +181,7 @@ export default function ProductDetail() {
                 isFavorite ? 'bg-red-500' : 'bg-white'
               }`}
             >
-              <HeartIcon color={isFavorite ? 'white' : 'black'} />
+              <BorderedHeartIcon color={isFavorite ? 'white' : 'black'} />
             </div>
           </div>
           <div id="properties">

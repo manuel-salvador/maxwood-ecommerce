@@ -165,7 +165,7 @@ export const FilterIcon = ({ size = 20, color = 'black' }: IconProps) => (
   </svg>
 );
 
-export const ArrowDownIcon = ({ size = 20, color = 'black' }: IconProps) => (
+export const DownArrowIcon = ({ size = 20, color = 'black' }: IconProps) => (
   <svg
     width={size}
     height={size}
@@ -180,7 +180,7 @@ export const ArrowDownIcon = ({ size = 20, color = 'black' }: IconProps) => (
   </svg>
 );
 
-export const HeartIcon = ({ size = 20, color = 'black' }: IconProps) => (
+export const BorderedHeartIcon = ({ size = 20, color = 'black' }: IconProps) => (
   <svg
     width={size}
     height={size}
@@ -190,6 +190,21 @@ export const HeartIcon = ({ size = 20, color = 'black' }: IconProps) => (
   >
     <path
       d="M10.1 15.55L10 15.65L9.89 15.55C5.14 11.24 2 8.39 2 5.5C2 3.5 3.5 2 5.5 2C7.04 2 8.54 3 9.07 4.36H10.93C11.46 3 12.96 2 14.5 2C16.5 2 18 3.5 18 5.5C18 8.39 14.86 11.24 10.1 15.55ZM14.5 0C12.76 0 11.09 0.81 10 2.08C8.91 0.81 7.24 0 5.5 0C2.42 0 0 2.41 0 5.5C0 9.27 3.4 12.36 8.55 17.03L10 18.35L11.45 17.03C16.6 12.36 20 9.27 20 5.5C20 2.41 17.58 0 14.5 0Z"
+      fill={COLORS[color]}
+    />
+  </svg>
+);
+
+export const FilledHeartIcon = ({ size = 20, color = 'black' }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 20 19"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10 18.35L8.55 17.03C3.4 12.36 0 9.27 0 5.5C0 2.41 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.08C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.41 20 5.5C20 9.27 16.6 12.36 11.45 17.03L10 18.35Z"
       fill={COLORS[color]}
     />
   </svg>
@@ -217,6 +232,21 @@ export const LeftArrowIcon = ({ size = 20, color = 'black' }: IconProps) => (
   >
     <path
       d="M16.3499 0.594312C16.7662 0.974964 17 1.49117 17 2.02941C17 2.56766 16.7662 3.08386 16.3499 3.46451L5.35936 13.5123L16.3499 23.56C16.7544 23.9428 16.9782 24.4556 16.9731 24.9878C16.968 25.52 16.7345 26.0291 16.3229 26.4055C15.9112 26.7818 15.3543 26.9953 14.7722 26.9999C14.19 27.0045 13.6292 26.7999 13.2104 26.4302L0.650078 14.9474C0.233833 14.5667 0 14.0505 0 13.5123C0 12.974 0.233833 12.4578 0.650078 12.0772L13.2104 0.594312C13.6268 0.213774 14.1914 0 14.7802 0C15.3689 0 15.9336 0.213774 16.3499 0.594312Z"
+      fill={COLORS[color]}
+    />
+  </svg>
+);
+
+export const RightArrowIcon = ({ size = 20, color = 'black' }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 17 27"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.650078 26.4057C0.233833 26.025 1.30362e-07 25.5088 1.77417e-07 24.9706C2.24472e-07 24.4323 0.233833 23.9161 0.650078 23.5355L11.6406 13.4877L0.65008 3.44C0.245632 3.05717 0.0218369 2.54442 0.0268958 2.0122C0.0319547 1.47999 0.265462 0.970874 0.677126 0.594524C1.08879 0.218174 1.64567 0.00469848 2.22783 7.36912e-05C2.80999 -0.0045511 3.37085 0.200046 3.7896 0.569799L16.3499 12.0526C16.7662 12.4333 17 12.9495 17 13.4877C17 14.026 16.7662 14.5422 16.3499 14.9228L3.7896 26.4057C3.37323 26.7862 2.80859 27 2.21984 27C1.63109 27 1.06645 26.7862 0.650078 26.4057Z"
       fill={COLORS[color]}
     />
   </svg>
