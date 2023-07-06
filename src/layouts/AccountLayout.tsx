@@ -1,5 +1,4 @@
 import { ReactNode, useState } from 'react';
-import Link from 'next/link';
 
 import AccountAside from '@/components/pages/cuenta/AccountAside';
 import { DownArrowIcon } from '@/components/shared/Icons';

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 
-import { CartIcon, BorderedHeartIcon, PlusIcon } from '@/components/shared/Icons';
+import { CartIcon, BorderedHeartIcon, PlusIcon, FilledHeartIcon } from '@/components/shared/Icons';
 import { IProduct } from '@/types';
 import { useProductsContext } from '@/context/ProductsContext';
 
@@ -44,12 +44,10 @@ export default function ProductCard({ product, showAddCartButton = true }: Props
         className="w-full h-full max-w-sm mx-auto relative border-2 rounded-lg flex flex-col overflow-hidden"
       >
         <div
-          className={`z-10 absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer ${
-            isFavorite ? 'bg-red-500' : 'bg-white'
-          }`}
+          className="z-10 absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white"
           onClick={handleOnClickHeart}
         >
-          <BorderedHeartIcon color={isFavorite ? 'white' : 'black'} />
+          {isFavorite ? <FilledHeartIcon /> : <BorderedHeartIcon />}
         </div>
         <figure className="bg-gray-700 w-full aspect-square relative">
           <Image

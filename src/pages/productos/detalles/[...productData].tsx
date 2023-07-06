@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 
 import PageLayout from '@/layouts/PageLayout';
 import { IProduct } from '@/types';
-import { CartIcon, BorderedHeartIcon, StarIcon } from '@/components/shared/Icons';
+import { CartIcon, BorderedHeartIcon, StarIcon, FilledHeartIcon } from '@/components/shared/Icons';
 import ProductCard from '@/components/pages/productos/ProductCard';
 import ImageMagnifier from '@/components/pages/productos/ImageMagnifier';
 import { useProductsContext } from '@/context/ProductsContext';
@@ -177,11 +177,9 @@ export default function ProductDetail() {
             </button>
             <div
               onClick={handleOnClickHeart}
-              className={`w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer ${
-                isFavorite ? 'bg-red-500' : 'bg-white'
-              }`}
+              className="w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white"
             >
-              <BorderedHeartIcon color={isFavorite ? 'white' : 'black'} />
+              {isFavorite ? <FilledHeartIcon size={25} /> : <BorderedHeartIcon size={25} />}
             </div>
           </div>
           <div id="properties">
