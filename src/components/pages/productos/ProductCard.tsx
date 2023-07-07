@@ -22,7 +22,7 @@ export default function ProductCard({ product, showAddCartButton = true }: Props
     if (status !== 'authenticated') return;
     const checkFavorite = favoriteProducts.find((p) => p.id === product.id);
     setIsFavorite(Boolean(checkFavorite));
-  }, [favoriteProducts]);
+  }, [favoriteProducts, status]);
 
   const handleOnClickHeart = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
