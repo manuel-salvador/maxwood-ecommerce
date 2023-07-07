@@ -1,10 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from 'next';
 
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-export default async function auth(req: NextApiRequest, res: NextApiResponse) {
-  return await NextAuth(req, res, {
+export const getNextAuthOptions = (
+  req: NextApiRequest | GetServerSidePropsContext['req'],
+  res: NextApiResponse | GetServerSidePropsContext['res'],
+) => {
+  const authOptions: NextAuthOptions = {
     pages: {
       signIn: '/login',
     },
@@ -56,5 +59,11 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
         return session;
       },
     },
-  });
+  };
+
+  return authOptions;
+};
+
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+  return await NextAuth(req, res, getNextAuthOptions(req, res));
 }
