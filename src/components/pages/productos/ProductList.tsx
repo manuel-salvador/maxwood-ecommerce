@@ -37,7 +37,7 @@ export default function ProductList({ filtersOppened, products, setOrderBy }: Pr
         </div>
         <div id="productList" className="my-4 grid grid-cols-list-cards gap-8 px-4 md:px-0">
           {products &&
-            products.map((product, index) => <ProductCard key={index} product={product} />)}
+            products.map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </section>
     </div>

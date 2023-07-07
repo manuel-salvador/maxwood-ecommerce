@@ -5,11 +5,14 @@ import { getSession, signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { toast } from 'sonner';
 import { GetServerSidePropsContext } from 'next';
+import { getServerSession } from 'next-auth';
 
 import PageLayout from '@/layouts/PageLayout';
 import { AtIcon, CheckIcon, CloseEyeIcon, OpenEyeIcon } from '@/components/shared/Icons';
 import Loader from '@/components/shared/Loader';
 import LoadingPage from '@/components/pages/LoadingPage';
+
+import { getNextAuthOptions } from '../api/auth/[...nextauth]';
 
 export default function LoginPage() {
   const [submittingForm, setSubmittingForm] = useState(false);
@@ -151,7 +154,12 @@ export default function LoginPage() {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getSession(context);
+  // const session = await getSession(context);
+  const session = await getServerSession(
+    context.req,
+    context.res,
+    getNextAuthOptions(context.req, context.res),
+  );
 
   if (session && session.user) {
     return {

@@ -124,7 +124,7 @@ export default function Header() {
 
       <div className="flex items-center gap-4 md:flex-1 md:justify-end">
         <Search />
-        <Link href="/cuenta/favoritos">
+        <Link href="/cuenta/favoritos" prefetch={false}>
           <BorderedHeartIcon />
         </Link>
         <span className="cursor-pointer relative" onClick={openCartModal}>
