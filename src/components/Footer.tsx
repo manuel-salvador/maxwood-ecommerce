@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -25,7 +26,9 @@ export default function Footer() {
             <div>
               <h6 className="font-bold">Empresa</h6>
               <ul>
-                <li>Nosotros</li>
+                <li>
+                  <Link href="/sobre-nosotros">Nosotros</Link>
+                </li>
                 <li>Contacto</li>
                 <li>Maps</li>
               </ul>

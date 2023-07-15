@@ -56,6 +56,7 @@ export default function AboutUsPage() {
             Nos preocupamos profundamente por el medio ambiente y nos esforzamos por ser una empresa
             responsable y sostenible. Trabajamos en estrecha colaboración con proveedores que
             comparten nuestros valores, obteniendo la madera de fuentes responsables y sostenibles.
+            <br />
             Además, implementamos prácticas de fabricación que minimizan nuestro impacto ambiental,
             utilizando materiales ecológicos y reduciendo residuos. Nuestro compromiso con la
             sostenibilidad es una parte integral de nuestra identidad como empresa.
@@ -65,15 +66,19 @@ export default function AboutUsPage() {
           <Image src={Forest} alt="Bosque" fill className="object-cover w-full h-full" />
         </figure>
       </div>
-
       <div className="max-w-6xl mx-auto mb-32 px-8 sm:px-16">
-        <h2 className="font-bold text-4xl mb-8">Más de nosotros</h2>
+        <h2 className="font-bold text-2xl md:text-4xl mb-8">Más de nosotros</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
           <div className="w-full">
-            <figure>
-              <Image src={PersonasTrabajando} alt="Personas trabajando" />
+            <figure className="w-full relative aspect-[3/2]">
+              <Image
+                src={PersonasTrabajando}
+                alt="Personas trabajando"
+                fill
+                className="object-cover"
+              />
             </figure>
-            <h3 className="text-2xl sm:text-xl font-semibold my-4">Nuestra filosofía</h3>
+            <h3 className="text-xl md:text-2xl font-semibold my-4">Nuestra filosofía</h3>
             <p>
               En nuestro corazón, valoramos la artesanía de calidad y el diseño excepcional. Creemos
               en la creación de muebles que superen las expectativas de nuestros clientes en
@@ -84,12 +89,15 @@ export default function AboutUsPage() {
             </p>
           </div>
           <div className="w-full">
-            <figure>
-              <Image src={AtencionCliente} alt="Chica atención al cliente" />
+            <figure className="w-full relative aspect-[3/2]">
+              <Image
+                src={AtencionCliente}
+                alt="Chica atención al cliente"
+                fill
+                className="object-cover"
+              />
             </figure>
-            <h3 className="text-2xl sm:text-xl font-semibold my-4">
-              Experiencia de cliente excepcional
-            </h3>
+            <h3 className="text-xl md:text-2xl font-semibold my-4">Atención al cliente</h3>
             <p>
               Nos enorgullece ofrecer una experiencia de cliente excepcional en cada paso del
               camino. Desde el momento en que navegas por nuestro sitio web hasta el momento en que
@@ -100,10 +108,10 @@ export default function AboutUsPage() {
             </p>
           </div>
           <div className="w-full">
-            <figure>
-              <Image src={AprentonManos} alt="Apreton de manos" />
+            <figure className="w-full relative aspect-[3/2]">
+              <Image src={AprentonManos} alt="Apreton de manos" fill className="object-cover" />
             </figure>
-            <h3 className="text-2xl sm:text-xl font-semibold my-4">Calidad y garantía</h3>
+            <h3 className="text-xl md:text-2xl font-semibold my-4">Calidad y garantía</h3>
             <p>
               Estamos comprometidos con la calidad en cada aspecto de nuestro negocio. Utilizamos
               materiales de la más alta calidad y aplicamos rigurosos estándares de fabricación para
