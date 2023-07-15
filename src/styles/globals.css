@@ -53,4 +53,11 @@
     @apply bg-primary;
     width: 2px;
   }
+
+  .clip-left-point {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+  }
+  .clip-parallel {
+    clip-path: polygon(0 25%, 100% 50%, 100% 100%, 0% 100%);
+  }
 }
