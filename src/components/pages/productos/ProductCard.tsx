@@ -44,7 +44,7 @@ export default function ProductCard({ product, showAddCartButton = true }: Props
         className="w-full h-full max-w-sm mx-auto relative border-2 rounded-lg flex flex-col overflow-hidden"
       >
         <div
-          className="z-10 absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white"
+          className="z-10 absolute right-4 top-4 w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white shadow-md shadow-gray-400"
           onClick={handleOnClickHeart}
         >
           {isFavorite ? <FilledHeartIcon /> : <BorderedHeartIcon />}

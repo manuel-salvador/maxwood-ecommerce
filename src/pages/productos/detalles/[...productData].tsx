@@ -177,7 +177,7 @@ export default function ProductDetail() {
             </button>
             <div
               onClick={handleOnClickHeart}
-              className="w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white"
+              className="w-8 h-8 rounded-full flex justify-center items-center transition-colors cursor-pointer bg-white shadow-md shadow-gray-400"
             >
               {isFavorite ? <FilledHeartIcon size={25} /> : <BorderedHeartIcon size={25} />}
             </div>

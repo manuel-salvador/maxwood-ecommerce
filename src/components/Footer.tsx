@@ -18,9 +18,15 @@ export default function Footer() {
             <div>
               <h6 className="font-bold">Información</h6>
               <ul>
-                <li>Términos y condiciones</li>
-                <li>Pago seguro</li>
-                <li>Polítco de envio</li>
+                <li>
+                  <Link href="/terminos-y-condiciones">Términos y condiciones</Link>
+                </li>
+                <li>
+                  <Link href="/pago-seguro">Pago seguro</Link>
+                </li>
+                <li>
+                  <Link href="/politica-de-envio">Polítca de envio</Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -29,8 +35,18 @@ export default function Footer() {
                 <li>
                   <Link href="/sobre-nosotros">Nosotros</Link>
                 </li>
-                <li>Contacto</li>
-                <li>Maps</li>
+                <li>
+                  <Link href="/contacto">Contacto</Link>
+                </li>
+                <li>
+                  <a
+                    href="https://goo.gl/maps/Bo6To1zTYiMX2cMR7"
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                  >
+                    Maps
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
