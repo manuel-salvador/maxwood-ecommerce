@@ -29,9 +29,9 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (status !== 'authenticated') return;
-    const checkFavorite = favoriteProducts.find((p) => p.id === product?.id);
+    const checkFavorite = favoriteProducts.some((p) => p.id === product?.id);
     setIsFavorite(Boolean(checkFavorite));
-  }, [favoriteProducts]);
+  }, [favoriteProducts, product]);
 
   const handleOnClickHeart = () => {
     if (!product) return;
