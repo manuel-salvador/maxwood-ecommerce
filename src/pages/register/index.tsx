@@ -208,7 +208,11 @@ export default function RegisterPage() {
               <span className="leading-none">Acepto los</span>
             </div>
           </label>
-          <Link href="terms" target="_blank" className="leading-none text-secondary cursor-pointer">
+          <Link
+            href="/terminos-y-condiciones"
+            target="_blank"
+            className="leading-none text-secondary cursor-pointer"
+          >
             términos y condiciones
           </Link>
         </div>
