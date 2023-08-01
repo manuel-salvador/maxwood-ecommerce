@@ -139,7 +139,10 @@ export default function LoginPage() {
         </button>
       </form>
       <div className="flex flex-col items-center gap-4 mt-6">
-        <Link href="/" className="text-secondary link-animation after:bg-secondary">
+        <Link
+          href="/recuperar-contraseña"
+          className="text-secondary link-animation after:bg-secondary"
+        >
           Recuperar contraseña
         </Link>
         <div>
@@ -154,7 +157,6 @@ export default function LoginPage() {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // const session = await getSession(context);
   const session = await getServerSession(
     context.req,
     context.res,

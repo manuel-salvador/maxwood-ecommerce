@@ -37,6 +37,11 @@ export default function CartModal() {
 
   const goToCheckout = () => {
     console.log({ products: cartItems, total });
+    if (router.asPath !== '/checkout') {
+      router.push('/checkout');
+    } else {
+      closeCartModal();
+    }
   };
 
   const handleSeeMoreProducts = () => {
@@ -58,7 +63,7 @@ export default function CartModal() {
       onClick={handleOutsideClick}
     >
       <div
-        className={`absolute top-0 w-full max-w-lg ml-auto bg-white h-full transition-all duration-500 overflow-y-auto custom-scrollbar ${
+        className={`absolute top-0 w-full max-w-lg ml-auto pb-6 bg-white h-full transition-all duration-500 overflow-y-auto custom-scrollbar ${
           isCartModalOpen ? 'right-0' : '-right-full'
         }`}
       >
