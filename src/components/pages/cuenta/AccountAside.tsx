@@ -78,7 +78,7 @@ export default function AccountAside({ closeSubMenu }: Props) {
         </li>
       </ul>
       <div className="flex flex-col gap-5">
-        <Link href="/cuenta/ayuda" onClick={closeSubMenu}>
+        <Link href="/ayuda" onClick={closeSubMenu}>
           <div className="flex gap-4 items-center">
             <span>
               <QuestionIcon />
