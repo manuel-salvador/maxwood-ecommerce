@@ -15,7 +15,7 @@ export default function useFilters(products: IProduct[]) {
   const [filterValues, setFilterValues] = useState<{
     [clave: string]: boolean | number[];
   }>({});
-  const [productsFiltered, setproductsFiltered] = useState<IProduct[] | []>([]);
+  const [productsFiltered, setProductsFiltered] = useState<IProduct[] | []>(products);
   const [orderBy, setOrderBy] = useState<string>('');
 
   useEffect(() => {
@@ -48,16 +48,23 @@ export default function useFilters(products: IProduct[]) {
     setAllFilters();
   }, [products]);
 
-  useEffect(() => {
+  const checkIsAnyFilter = () => {
     const { categorias, subCategorias, materiales, precioMinMax } = applyFilters;
     const [minPrice, maxPrice] = precioMinMax;
-    const isAnyFilter =
+    return (
       !!categorias.length ||
       !!subCategorias.length ||
       !!materiales.length ||
-      (!!minPrice && !!maxPrice);
+      (!!minPrice && !!maxPrice)
+    );
+  };
+
+  useEffect(() => {
+    const isAnyFilter = checkIsAnyFilter();
 
     if (isAnyFilter) {
+      const { categorias, subCategorias, materiales, precioMinMax } = applyFilters;
+      const [minPrice, maxPrice] = precioMinMax;
       const newProducts = products.filter((product) => {
         const hasCategoriasFilter = !!categorias.length
           ? categorias.includes(product.categoria)
@@ -80,9 +87,9 @@ export default function useFilters(products: IProduct[]) {
           hasCategoriasFilter && hasSubCategoriasFilter && hasMaterialesFilter && hasMatchingPrice
         );
       });
-      setproductsFiltered(newProducts);
+      setProductsFiltered(newProducts);
     } else {
-      setproductsFiltered(products);
+      setProductsFiltered(products);
     }
   }, [applyFilters]);
 
@@ -135,7 +142,7 @@ export default function useFilters(products: IProduct[]) {
       orderBy === 'asc' ? p1.precio - p2.precio : p2.precio - p1.precio,
     );
 
-    setproductsFiltered(newProducts);
+    setProductsFiltered(newProducts);
   }, [orderBy]);
 
   const resetFilters = () => {
@@ -148,7 +155,7 @@ export default function useFilters(products: IProduct[]) {
     });
   };
 
-  const allProducts = productsFiltered.length > 0 ? productsFiltered : products;
+  const allProducts = checkIsAnyFilter() ? productsFiltered : products;
 
   return {
     products: allProducts,

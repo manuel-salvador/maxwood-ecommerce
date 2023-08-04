@@ -44,11 +44,23 @@ export default function ProductsLayout({ allProducts, query }: Props) {
             resetFilters={resetFilters}
             filterValues={filterValues}
           />
-          <ProductList
-            filtersOppened={filtersOppened}
-            products={products}
-            setOrderBy={setOrderBy}
-          />
+          {products.length > 0 ? (
+            <ProductList
+              filtersOppened={filtersOppened}
+              products={products}
+              setOrderBy={setOrderBy}
+            />
+          ) : (
+            <div className=" w-full text-center mt-2 mb-10 flex flex-col gap-4 sticky top-24 h-fit">
+              <span>No hay productos que coincidan con los filtros seleccionados</span>
+              <button
+                onClick={resetFilters}
+                className="button-primary bg-secondary w-fit self-center text-white"
+              >
+                Borrar filtros
+              </button>
+            </div>
+          )}
         </div>
       )}
     </PageLayout>

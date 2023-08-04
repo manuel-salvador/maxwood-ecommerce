@@ -74,13 +74,16 @@ export default function FilterSection({
             duration-300
             absolute
             top-0
-            h-screen
             md:h-fit
             z-10
             md:static
             md:flex
             md:w-1/3
-          ${filtersOppened ? 'left-0' : '-left-full'}`}
+          ${
+            filtersOppened
+              ? 'left-0 h-screen'
+              : '-left-full h-0 md:min-h-screen overflow-hidden md:overflow-visible'
+          }`}
       >
         <div className="flex justify-between text-light-gray">
           <span className="md:hidden" onClick={handleFiltersOpen}>
