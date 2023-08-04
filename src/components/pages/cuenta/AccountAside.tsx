@@ -78,13 +78,15 @@ export default function AccountAside({ closeSubMenu }: Props) {
         </li>
       </ul>
       <div className="flex flex-col gap-5">
-        <div className="flex items-center gap-2 cursor-pointer">
-          <span>
-            <QuestionIcon />
-          </span>
-          <span onClick={() => signOut()}>Ayuda</span>
-        </div>
-        <div className="flex items-center gap-2 cursor-pointer">
+        <Link href="/ayuda" onClick={closeSubMenu}>
+          <div className="flex gap-4 items-center">
+            <span>
+              <QuestionIcon />
+            </span>
+            <span>Ayuda</span>
+          </div>
+        </Link>
+        <div className="flex items-center gap-4 cursor-pointer">
           <span>
             <ShutdownIcon />
           </span>

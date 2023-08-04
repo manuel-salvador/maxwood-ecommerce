@@ -9,7 +9,10 @@ export default function Categories() {
         <p className="text-xl">
           Equipate para trabajar o estudiar <br /> desde tu hogar, oficina o negocio.
         </p>
-        <Link href="/" className="button-primary self-center bg-secondary md:self-start">
+        <Link
+          href="/productos/categoria/dormitorio"
+          className="button-primary self-center bg-secondary md:self-start"
+        >
           Ver catálogo
         </Link>
         <Image
@@ -24,7 +27,10 @@ export default function Categories() {
         <p className="text-xl">
           Centros de entretenimiento, <br /> racks para TV y modulares
         </p>
-        <Link href="/" className="button-primary self-center bg-secondary md:self-start">
+        <Link
+          href="/productos/categoria/living"
+          className="button-primary self-center bg-secondary md:self-start"
+        >
           Ver catálogo
         </Link>
         <Image
@@ -40,7 +46,10 @@ export default function Categories() {
           Comodidad y estilo al aire libre. <br /> Conjuntos de comedor, sofás modulares, tumbonas y
           más.
         </p>
-        <Link href="/" className="button-primary self-center bg-secondary md:self-start">
+        <Link
+          href="/productos/categoria/exterior"
+          className="button-primary self-center bg-secondary md:self-start"
+        >
           Ver catálogo
         </Link>
         <Image
@@ -55,7 +64,10 @@ export default function Categories() {
         <p className="text-xl">
           Bajomesadas, alacenas, <br /> ordenadores y mesadas
         </p>
-        <Link href="/" className="button-primary self-center bg-secondary md:self-start">
+        <Link
+          href="/productos/categoria/cocina"
+          className="button-primary self-center bg-secondary md:self-start"
+        >
           Ver catálogo
         </Link>
         <Image

@@ -19,7 +19,9 @@ export default function Footer() {
               <h6 className="font-bold">Información</h6>
               <ul>
                 <li>
-                  <Link href="/terminos-y-condiciones">Términos y condiciones</Link>
+                  <a href="/terminos-y-condiciones" target="_blank">
+                    Términos y condiciones
+                  </a>
                 </li>
                 <li>
                   <Link href="/pago-seguro">Pago seguro</Link>

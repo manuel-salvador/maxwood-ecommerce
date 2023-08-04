@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import { getSession, signIn, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { toast } from 'sonner';
 import { GetServerSidePropsContext } from 'next';
@@ -139,7 +139,10 @@ export default function LoginPage() {
         </button>
       </form>
       <div className="flex flex-col items-center gap-4 mt-6">
-        <Link href="/" className="text-secondary link-animation after:bg-secondary">
+        <Link
+          href="/recuperar-password"
+          className="text-secondary link-animation after:bg-secondary"
+        >
           Recuperar contraseña
         </Link>
         <div>
@@ -154,7 +157,6 @@ export default function LoginPage() {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // const session = await getSession(context);
   const session = await getServerSession(
     context.req,
     context.res,

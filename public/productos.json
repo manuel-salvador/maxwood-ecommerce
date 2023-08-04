@@ -559,6 +559,114 @@
         "ancho": 60,
         "profundidad": 60
       }
+    },
+    {
+      "id": 21,
+      "nombre": "Mueble TV Rack Moderno",
+      "descripcion": "El diseño moderno y contemporáneo de este mueble le da un toque de estilo a cualquier habitación, complementando a la perfección cualquier decoración. Fabricado con materiales de alta calidad, la melamina utilizada asegura una superficie resistente a arañazos y al desgaste, garantizando la durabilidad a lo largo del tiempo.",
+      "imagen": "/products/mueble-tv-moderno-gris.avif",
+      "imagenes": [
+        { "alt": "Imagen mueble TV Rack Moderno", "url": "/products/mueble-tv-moderno-gris.avif" },
+        {
+          "alt": "Imagen mueble TV Rack Moderno frente",
+          "url": "https://www.mueblespsh.com.ar/images/000000000MTV4004000266706MTV4004-1.jpg"
+        },
+        {
+          "alt": "Imagen mueble TV Rack Moderno angulo",
+          "url": "https://www.mueblespsh.com.ar/images/000000000MTV4004000466706MTV4004-3.jpg"
+        }
+      ],
+      "precio": 5000,
+      "stock": 5,
+      "categoria": "living",
+      "subCategoria": "mueble",
+      "material": "madera",
+      "color": "negro",
+      "dimensiones": {
+        "alto": 90,
+        "ancho": 210, 
+        "profundidad": 90 
+      }
+    },
+    {
+      "id": 22,
+      "nombre": "Despensa moderna",
+      "descripcion": "Despensa de madera moderna con lavabo, 3 alacenas y 3 muebles de almacenamiento.",
+      "imagen": "/products/despensa-moderna.webp",
+      "imagenes": [
+        { "alt": "Imagen despensa moderna", "url": "/products/despensa-moderna.webp" }
+      ],
+      "precio": 5000,
+      "stock": 5,
+      "categoria": "cocina",
+      "subCategoria": "mueble",
+      "material": "madera",
+      "color": "negro y beige",
+      "dimensiones": {
+        "alto": 90,
+        "ancho": 210, 
+        "profundidad": 90 
+      }
+    },
+    {
+      "id": 23,
+      "nombre": "Mueble de almacenamiento",
+      "descripcion": "Mueble de madera moderna con 2 amplios compartimientos de puerta doble.",
+      "imagen": "/products/mueble-de-almacenamiento.jpg",
+      "imagenes": [
+        { "alt": "Imagen mueble de almacenamiento", "url": "/products/mueble-de-almacenamiento.jpg" }
+      ],
+      "precio": 5000,
+      "stock": 5,
+      "categoria": "dormitorio",
+      "subCategoria": "mueble",
+      "material": "madera",
+      "color": "beige",
+      "dimensiones": {
+        "alto": 90,
+        "ancho": 210, 
+        "profundidad": 90 
+      }
+    },
+    {
+      "id": 24,
+      "nombre": "Set living DAF",
+      "descripcion": "Este set esta compuesto por 2 muebles flotantes y 2 muebles en el piso.",
+      "imagen": "/products/set-living-daf.webp",
+      "imagenes": [
+        { "alt": "Imagen set living DAF", "url": "/products/set-living-daf.webp" }
+      ],
+      "precio": 5000,
+      "stock": 5,
+      "categoria": "living",
+      "subCategoria": "mueble",
+      "material": "madera",
+      "color": "beige",
+      "dimensiones": {
+        "alto": 90,
+        "ancho": 210, 
+        "profundidad": 90 
+      }
+    },
+    {
+      "id": 25,
+      "nombre": "Set exterior DOR",
+      "descripcion": "Este set esta compuesto por 2 bancos y 2 mesas pequeñas.",
+      "imagen": "/products/set-exterior-dor.webp",
+      "imagenes": [
+        { "alt": "Imagen set exterior DOR", "url": "/products/set-exterior-dor.webp" }
+      ],
+      "precio": 5000,
+      "stock": 5,
+      "categoria": "exterior",
+      "subCategoria": "set",
+      "material": "madera",
+      "color": "beige",
+      "dimensiones": {
+        "alto": 90,
+        "ancho": 210, 
+        "profundidad": 90 
+      }
     }
   ]
 }
