@@ -41,13 +41,7 @@ export default function Footer() {
                   <Link href="/contacto">Contacto</Link>
                 </li>
                 <li>
-                  <a
-                    href="https://goo.gl/maps/Bo6To1zTYiMX2cMR7"
-                    target="_blank"
-                    referrerPolicy="no-referrer"
-                  >
-                    Maps
-                  </a>
+                  <Link href="/ayuda">Ayuda</Link>
                 </li>
               </ul>
             </div>
