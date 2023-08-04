@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import { getSession, signIn, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { toast } from 'sonner';
 import { GetServerSidePropsContext } from 'next';
@@ -140,7 +140,7 @@ export default function LoginPage() {
       </form>
       <div className="flex flex-col items-center gap-4 mt-6">
         <Link
-          href="/recuperar-contraseña"
+          href="/recuperar-password"
           className="text-secondary link-animation after:bg-secondary"
         >
           Recuperar contraseña
